@@ -1,59 +1,51 @@
 {
-	"name": "caramel",
-	"version": "1.0.0",
-	"description": "sweet portfolio build on twentytwenty",
-	"author": "The WordPress Contributors",
-	"license": "GPL-2.0-or-later",
-	"keywords": [
-		"WordPress",
-		"Theme",
-		"TwentyTwenty"
-	],
-	"homepage": "https://caramel-theme.flellex.de",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/felex0982/caramel-theme"
-	},
-	"bugs": {
-		"url": "https://github.com/felex0982/caramel-theme/issues"
-	},
-	"devDependencies": {
-		"@wordpress/browserslist-config": "^2.6.0",
-		"@wordpress/scripts": "^5.0.0",
-		"autoprefixer": "^9.6.1",
-		"concurrently": "^5.2.0",
-		"postcss-cli": "^7.0.0",
-		"rtlcss": "^2.5.0",
-		"stylelint-a11y": "^1.2.3"
-	},
-	"browserslist": [
-		"extends @wordpress/browserslist-config"
-	],
-	"rtlcssConfig": {
-		"options": {
-			"autoRename": false,
-			"autoRenameStrict": false,
-			"blacklist": {},
-			"clean": true,
-			"greedy": false,
-			"processUrls": false,
-			"stringMap": []
-		},
-		"plugins": [],
-		"map": false
-	},
-	"scripts": {
-		"build": "npm run build:vendor-prefixes && npm run build:rtl",
-		"build:rtl": "concurrently \"npm run build:rtl-style\" \"npm run build:rtl-esb\" \"npm run build:rtl-esc\"",
-		"build:rtl-style": "rtlcss style.css style-rtl.css",
-		"build:rtl-esb": "rtlcss assets/css/editor-style-block.css assets/css/editor-style-block-rtl.css",
-		"build:rtl-esc": "rtlcss assets/css/editor-style-classic.css assets/css/editor-style-classic-rtl.css",
-		"build:vendor-prefixes": "concurrently \"npm run build:vendor-prefixes-style\" \"npm run build:vendor-prefixes-esb\" \"npm run build:vendor-prefixes-esc\"",
-		"build:vendor-prefixes-style": "postcss -r --no-map style.css assets/css/editor-style-block.css assets/css/editor-style-classic.css",
-		"build:vendor-prefixes-esb": "postcss -r --no-map assets/css/editor-style-block.css ",
-		"build:vendor-prefixes-esc": "postcss -r --no-map assets/css/editor-style-classic.css",
-		"lint:css": "wp-scripts lint-style 'style.css' 'assets/**/*.css'",
-		"lint:js": "wp-scripts lint-js 'assets/**/*.js'",
-		"lint:pkg-json": "wp-scripts lint-pkg-json"
-	}
+  "name": "understrap",
+  "version": "0.9.4",
+  "description": "WordPress Theme framework",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "gulp copy-assets"
+  },
+  "engines": {
+    "node": ">=10",
+    "npm": ">=2.1.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/understrap/understrap.git"
+  },
+  "keywords": [
+    "wordpress",
+    "theme",
+    "framework",
+    "bootstrap",
+    "underscores"
+  ],
+  "author": "The UnderStrap Authors (https://github.com/understrap/understrap/graphs/contributors)",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/understrap/understrap/issues"
+  },
+  "homepage": "https://understrap.com",
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "autoprefixer": "^9.8.0",
+    "bootstrap": "^4.5.0",
+    "browser-sync": "^2.26.7",
+    "del": "^5.1.0",
+    "font-awesome": "^4.7.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2"
+  }
 }

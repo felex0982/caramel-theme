@@ -1,36 +1,90 @@
 <?php
 /**
- * The template for displaying the 404 template in the caramel theme.
+ * The template for displaying 404 pages (not found)
  *
- * @package WordPress
- * 
- * @since caramel 1.0
+ * @package UnderStrap
  */
 
+// Exit if accessed directly.
+defined( 'ABSPATH' ) || exit;
+
 get_header();
+
+$container = get_theme_mod( 'understrap_container_type' );
 ?>
 
-<main id="site-content" role="main">
+<div class="wrapper" id="error-404-wrapper">
 
-	<div class="section-inner thin error404-content">
+	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
 
-		<h1 class="entry-title"><?php _e( 'Page Not Found', 'caramel' ); ?></h1>
+		<div class="row">
 
-		<div class="intro-text"><p><?php _e( 'The page you were looking for could not be found. It might have been removed, renamed, or did not exist in the first place.', 'caramel' ); ?></p></div>
+			<div class="col-md-12 content-area" id="primary">
 
-		<?php
-		get_search_form(
-			array(
-				'label' => __( '404 not found', 'caramel' ),
-			)
-		);
-		?>
+				<main class="site-main" id="main">
 
-	</div><!-- .section-inner -->
+					<section class="error-404 not-found">
 
-</main><!-- #site-content -->
+						<header class="page-header">
 
-<?php get_template_part( 'template-parts/footer-menus-widgets' ); ?>
+							<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'understrap' ); ?></h1>
+
+						</header><!-- .page-header -->
+
+						<div class="page-content">
+
+							<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'understrap' ); ?></p>
+
+							<?php get_search_form(); ?>
+
+							<?php the_widget( 'WP_Widget_Recent_Posts' ); ?>
+
+							<?php if ( understrap_categorized_blog() ) : // Only show the widget if site has multiple categories. ?>
+
+								<div class="widget widget_categories">
+
+									<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'understrap' ); ?></h2>
+
+									<ul>
+										<?php
+										wp_list_categories(
+											array(
+												'orderby'  => 'count',
+												'order'    => 'DESC',
+												'show_count' => 1,
+												'title_li' => '',
+												'number'   => 10,
+											)
+										);
+										?>
+									</ul>
+
+								</div><!-- .widget -->
+
+							<?php endif; ?>
+
+							<?php
+
+							/* translators: %1$s: smiley */
+							$archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'understrap' ), convert_smilies( ':)' ) ) . '</p>';
+							the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$archive_content" );
+
+							the_widget( 'WP_Widget_Tag_Cloud' );
+							?>
+
+						</div><!-- .page-content -->
+
+					</section><!-- .error-404 -->
+
+				</main><!-- #main -->
+
+			</div><!-- #primary -->
+
+		</div><!-- .row -->
+
+	</div><!-- #content -->
+
+</div><!-- #error-404-wrapper -->
 
 <?php
 get_footer();
