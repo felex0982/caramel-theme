@@ -67,7 +67,7 @@ if ( ! class_exists( 'TwentyTwenty_Walker_Page' ) ) {
 
 			if ( '' === $page->post_title ) {
 				/* translators: %d: ID of a post. */
-				$page->post_title = sprintf( __( '#%d (no title)', 'twentytwenty' ), $page->ID );
+				$page->post_title = sprintf( __( '#%d (no title)', 'caramel' ), $page->ID );
 			}
 
 			$args['link_before'] = empty( $args['link_before'] ) ? '' : $args['link_before'];
@@ -104,7 +104,7 @@ if ( ! class_exists( 'TwentyTwenty_Walker_Page' ) ) {
 					$toggle_duration      = twentytwenty_toggle_duration();
 
 					// Add the sub menu toggle.
-					$args['list_item_after'] .= '<button class="toggle sub-menu-toggle fill-children-current-color" data-toggle-target="' . $toggle_target_string . '" data-toggle-type="slidetoggle" data-toggle-duration="' . absint( $toggle_duration ) . '" aria-expanded="false"><span class="screen-reader-text">' . __( 'Show sub menu', 'twentytwenty' ) . '</span>' . twentytwenty_get_theme_svg( 'chevron-down' ) . '</button>';
+					$args['list_item_after'] .= '<button class="toggle sub-menu-toggle fill-children-current-color" data-toggle-target="' . $toggle_target_string . '" data-toggle-type="slidetoggle" data-toggle-duration="' . absint( $toggle_duration ) . '" aria-expanded="false"><span class="screen-reader-text">' . __( 'Show sub menu', 'caramel' ) . '</span>' . twentytwenty_get_theme_svg( 'chevron-down' ) . '</button>';
 
 				}
 

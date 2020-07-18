@@ -18,7 +18,7 @@
 	$color_overlay_style   = '';
 	$color_overlay_classes = '';
 
-	$image_url = ! post_password_required() ? get_the_post_thumbnail_url( get_the_ID(), 'twentytwenty-fullscreen' ) : '';
+	$image_url = ! post_password_required() ? get_the_post_thumbnail_url( get_the_ID(), 'caramel-fullscreen' ) : '';
 
 	if ( $image_url ) {
 		$cover_header_style   = ' style="background-image: url( ' . esc_url( $image_url ) . ' );"';
@@ -67,7 +67,7 @@
 								?>
 
 								<div class="entry-categories">
-									<span class="screen-reader-text"><?php _e( 'Categories', 'twentytwenty' ); ?></span>
+									<span class="screen-reader-text"><?php _e( 'Categories', 'caramel' ); ?></span>
 									<div class="entry-categories-inner">
 										<?php the_category( ' ' ); ?>
 									</div><!-- .entry-categories-inner -->
@@ -85,7 +85,7 @@
 
 									<a href="#post-inner" class="to-the-content fill-children-current-color">
 										<?php twentytwenty_the_theme_svg( 'arrow-down' ); ?>
-										<div class="screen-reader-text"><?php _e( 'Scroll Down', 'twentytwenty' ); ?></div>
+										<div class="screen-reader-text"><?php _e( 'Scroll Down', 'caramel' ); ?></div>
 									</a><!-- .to-the-content -->
 
 								</div><!-- .to-the-content-wrapper -->
@@ -135,7 +135,7 @@
 		<?php
 		wp_link_pages(
 			array(
-				'before'      => '<nav class="post-nav-links bg-light-background" aria-label="' . esc_attr__( 'Page', 'twentytwenty' ) . '"><span class="label">' . __( 'Pages:', 'twentytwenty' ) . '</span>',
+				'before'      => '<nav class="post-nav-links bg-light-background" aria-label="' . esc_attr__( 'Page', 'caramel' ) . '"><span class="label">' . __( 'Pages:', 'caramel' ) . '</span>',
 				'after'       => '</nav>',
 				'link_before' => '<span class="page-number">',
 				'link_after'  => '</span>',
