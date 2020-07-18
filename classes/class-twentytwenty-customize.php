@@ -155,13 +155,13 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 					'default'           => array(
 						'content'       => array(
 							'text'      => '#000000',
-							'accent'    => '#cd2653',
+							'accent'    => '#333333',
 							'secondary' => '#6d6d6d',
 							'borders'   => '#dcd7ca',
 						),
 						'header-footer' => array(
 							'text'      => '#000000',
-							'accent'    => '#cd2653',
+							'accent'    => '#333333',
 							'secondary' => '#6d6d6d',
 							'borders'   => '#dcd7ca',
 						),
@@ -172,6 +172,7 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 				)
 			);
 
+
 			// Add the hue-only colorpicker for the accent color.
 			$wp_customize->add_control(
 				new WP_Customize_Color_Control(
@@ -181,7 +182,6 @@ if ( ! class_exists( 'TwentyTwenty_Customize' ) ) {
 						'section'         => 'colors',
 						'settings'        => 'accent_hue',
 						'description'     => __( 'Apply a custom color for links, buttons, featured images.', 'caramel' ),
-						'mode'            => 'hue',
 						'active_callback' => function() use ( $wp_customize ) {
 							return ( 'custom' === $wp_customize->get_setting( 'accent_hue_active' )->value() );
 						},

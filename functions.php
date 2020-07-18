@@ -644,13 +644,13 @@ function twentytwenty_get_color_for_area( $area = 'content', $context = 'text' )
 		array(
 			'content'       => array(
 				'text'      => '#000000',
-				'accent'    => '#cd2653',
+				'accent'    => '#333333',
 				'secondary' => '#6d6d6d',
 				'borders'   => '#dcd7ca',
 			),
 			'header-footer' => array(
 				'text'      => '#000000',
-				'accent'    => '#cd2653',
+				'accent'    => '#333333',
 				'secondary' => '#6d6d6d',
 				'borders'   => '#dcd7ca',
 			),
@@ -767,6 +767,7 @@ function twentytwenty_get_elements_array() {
  */
 
 function caramel_custom_post_type(){
+
 	 $labels = array(
 		 'name' => 'Portfolio',
 		 'singular_name' => 'Portfolio-Item',
@@ -795,10 +796,10 @@ function caramel_custom_post_type(){
 			 'excerpt',
 			 'thumbnail',
 		 ),
-		 'taxonomies' => array(
+		 /*'taxonomies' => array(
 			 'category',
 			 'post_tag'
-		 ),
+		 ),*/
 		 'menu_position' => 4,
 		 'exclude_from_search' => false
 	 );
@@ -807,3 +808,32 @@ function caramel_custom_post_type(){
 }
 
 add_action('init', 'caramel_custom_post_type');
+
+function caramel_custom_taxanomies(){
+
+	$labels = array(
+		'name' => 'Genres',
+		'singular_name' => 'Genre',
+		'search_items' => 'Search Genre',
+		'all_items' => 'All Genres',
+		'parent_item' => 'Parent Genre',
+		'parent_item_colon' => 'Parent Genre:',
+		'edit_item' => 'Edit Genre',
+		'update_item' => 'Update Genre',
+		'add_new_item' => 'Add New Genre',
+		'new_item_name' => 'New Genre Name',
+		'menu_name' => 'Genre'
+	);
+	$args = array(
+		'labels' => $labels,
+		'hierarchical' => true,
+		'show_ui' => true,
+		'show_admin_column' => true,
+		'query_var' => true,
+		'rewrite' => array('slug' => 'genre')
+	);
+
+	register_taxonomy('genre', array('portfolio'), $args);
+}
+
+add_action('init', 'caramel_custom_taxanomies');

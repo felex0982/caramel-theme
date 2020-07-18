@@ -16,7 +16,10 @@
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 	CUSTOM CONTENT
 	<?php
-		the_category( ' ' );
+		$terms_list = wp_get_post_terms($post->ID, 'genre');
+		foreach($terms_list as $term){
+			echo $term->name.' ';
+		}
 		the_title( '<h2 class="entry-title">', '</h2>' );
 		get_template_part( 'template-parts/featured-image' );
 	?>
