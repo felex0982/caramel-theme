@@ -11,7 +11,7 @@
 
 get_header();
 ?>
-SINGULAR
+PORTFOLIO CUSTOM POST TYPE
 <main id="site-content" role="main">
 	<?php
 
@@ -20,7 +20,18 @@ SINGULAR
 		while ( have_posts() ) {
 			the_post();
 
-			get_template_part( 'template-parts/content', get_post_type() );
+			?>
+			<article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
+				CONTENT
+				<?php
+				the_category( ' ' );
+				the_title( '<h1 class="entry-title">', '</h1>' );
+				get_template_part( 'template-parts/featured-image' );
+				?>
+
+			</article><!-- .post -->
+
+			<?php
 		}
 	}
 
