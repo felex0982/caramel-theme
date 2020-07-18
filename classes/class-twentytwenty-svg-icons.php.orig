@@ -3,7 +3,7 @@
  * Custom icons for this theme.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty
+ * 
  * @since caramel 1.0
  */
 

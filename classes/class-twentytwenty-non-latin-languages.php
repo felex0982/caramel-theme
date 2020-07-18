@@ -5,7 +5,7 @@
  * Handle non-latin language styles.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty
+ * 
  * @since caramel 1.0
  */
 

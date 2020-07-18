@@ -3,7 +3,7 @@
  * Displays the featured image
  *
  * @package WordPress
- * @subpackage Twenty_Twenty
+ * 
  * @since caramel 1.0
  */
 

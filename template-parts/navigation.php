@@ -3,7 +3,7 @@
  * Displays the next and previous post navigation in single posts.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty
+ * 
  * @since caramel 1.0
  */
 

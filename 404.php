@@ -3,7 +3,7 @@
  * The template for displaying the 404 template in the caramel theme.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty
+ * 
  * @since caramel 1.0
  */
 

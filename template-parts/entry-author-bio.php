@@ -3,7 +3,7 @@
  * The template for displaying Author info
  *
  * @package WordPress
- * @subpackage Twenty_Twenty
+ * 
  * @since caramel 1.0
  */
 

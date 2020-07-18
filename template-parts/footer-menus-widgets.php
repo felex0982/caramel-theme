@@ -4,7 +4,7 @@
  * Visually, this output is presented as part of the footer element.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty
+ * 
  * @since caramel 1.0
  */
 

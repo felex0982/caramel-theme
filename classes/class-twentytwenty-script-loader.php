@@ -7,7 +7,7 @@
  * Based on a solution in WP Rig.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty
+ * 
  * @since caramel 1.0
  */
 
