@@ -23,7 +23,7 @@ Portfolio Template
             while ( $loop->have_posts() ): $loop->the_post(); ?>
                 <div class="masonry-grid__item">
                     <?php
-                        get_template_part( 'template-parts/content', get_post_type() );
+                        get_template_part( 'template-parts/content-portfolio', get_post_type() );
                     ?>
                 </div>
             <?php endwhile;
