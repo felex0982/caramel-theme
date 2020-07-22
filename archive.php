@@ -17,15 +17,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 <div class="wrapper" id="archive-wrapper">
 
-	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
-
-		<div class="row">
-
-			<!-- Do the left sidebar check -->
-			<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
-
-			<main class="site-main" id="main">
-
 				<?php
 				if ( have_posts() ) {
 					?>
@@ -51,19 +42,6 @@ $container = get_theme_mod( 'understrap_container_type' );
 					get_template_part( 'loop-templates/content', 'none' );
 				}
 				?>
-
-			</main><!-- #main -->
-
-			<?php
-			// Display the pagination component.
-			understrap_pagination();
-			// Do the right sidebar check.
-			get_template_part( 'global-templates/right-sidebar-check' );
-			?>
-
-		</div><!-- .row -->
-
-	</div><!-- #content -->
 
 </div><!-- #archive-wrapper -->
 

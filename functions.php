@@ -30,7 +30,7 @@ foreach ( $understrap_includes as $file ) {
 	require_once get_template_directory() . '/inc' . $file;
 }
 
-function caramel_custom_post_type(){
+function caramel_custom_portfolio(){
 
 	$labels = array(
 		'name' => 'Portfolio',
@@ -71,7 +71,46 @@ function caramel_custom_post_type(){
 	register_post_type('portfolio', $args);
 }
 
-add_action('init', 'caramel_custom_post_type');
+add_action('init', 'caramel_custom_portfolio');
+
+function caramel_custom_mainslider_image(){
+
+	$labels = array(
+		'name' => 'Slider',
+		'singular_name' => 'Slider-Image',
+		'add_new' => 'Add Slider-Image',
+		'all_items' => 'All Images',
+		'add_new_item' => 'Add Slider-Image',
+		'edit_item' => 'Edit Slider-Image',
+		'new_item' => 'New Slider-Image',
+		'view_item' => 'View Image',
+		'search_item' => 'Search Slider',
+		'not_found' => 'No Images found',
+		'not_found_in_trash' => 'No Images found in Trash',
+		'parent_item_colon' => 'Parent Images'
+	);
+	$args = array(
+		'labels' => $labels,
+		'public' => true,
+		'has_archive' => true,
+		'publicly_queryable' => true,
+		'query_var' => true,
+		'rewrite' => true,
+		'capability_type' => 'post',
+		'hierarchical' => false,
+		'supports' => array(
+			'title',
+			'excerpt',
+			'thumbnail',
+		),
+		'menu_position' => 4,
+		'exclude_from_search' => false
+	);
+
+	register_post_type('sliderimage', $args);
+}
+
+add_action('init', 'caramel_custom_mainslider_image');
 
 function caramel_custom_taxanomies(){
 
