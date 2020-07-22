@@ -3,4 +3,17 @@
 // Just copy a variable from src/sass/bootstrap4/_variables.scss, paste it here and edit the value.
 
 
-$primary: #fff; // Thats a sample how you could change a BootStrap variable.
+$primary: #ffffff; // Thats a sample how you could change a BootStrap variable.
+$primary-background: #ffffff; // Thats a sample how you could change a BootStrap variable.
+$primary-text: #000000;
+$primary-text-hover: #666666;
+$transparent: rgba(255, 255, 255, 0);
+
+
+
+@mixin ease() {
+    -webkit-transition: all 0.20s ease;
+    -moz-transition: all 0.20s ease;
+    -o-transition: all 0.20s ease;
+    transition: all 0.20s ease;
+}

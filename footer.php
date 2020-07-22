@@ -10,36 +10,17 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$container = get_theme_mod( 'understrap_container_type' );
 ?>
 
 <?php get_template_part( 'sidebar-templates/sidebar', 'footerfull' ); ?>
 
-<div class="wrapper" id="wrapper-footer">
 
-	<div class="<?php echo esc_attr( $container ); ?>">
+	<footer class="">
 
-		<div class="row">
+			<a href="https://caramel.flellex.de">Theme: Caramel by Flellex</a>
 
-			<div class="col-md-12">
+	</footer>
 
-				<footer class="site-footer" id="colophon">
-
-					<div class="site-info">
-
-						<?php understrap_site_info(); ?>
-
-					</div><!-- .site-info -->
-
-				</footer><!-- #colophon -->
-
-			</div><!--col end -->
-
-		</div><!-- row end -->
-
-	</div><!-- container end -->
-
-</div><!-- wrapper end -->
 
 </div><!-- #page we need this extra closing tag here -->
 

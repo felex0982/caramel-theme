@@ -24,16 +24,17 @@ $container = get_theme_mod( 'understrap_container_type' );
 <body <?php body_class(); ?> <?php understrap_body_attributes(); ?>>
 <?php do_action( 'wp_body_open' ); ?>
 <div class="site" id="page">
-	<div class="title">
-		<!-- Your site title as branding in the menu -->
+	<!-- ******************* Title & Logo Area ******************* -->
+	<div class="caramel-title">
+		<!-- start custom or standart logo -->
 		<?php if ( ! has_custom_logo() ) { ?>
 
 		<?php if ( is_front_page() && is_home() ) : ?>
 
-			<h1 class="title__text"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a></h1>
+			<h1 class="caramel-title__text"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a></h1>
 
 		<?php else : ?>
-			<a class="title__link" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a>
+			<a class="caramel-title__link" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a>
 		<?php endif; ?>
 
 		<?php
@@ -44,43 +45,31 @@ $container = get_theme_mod( 'understrap_container_type' );
 		<!-- end custom logo -->
 	</div>
 	<!-- ******************* The Navbar Area ******************* -->
-	<div id="wrapper-navbar">
+	<nav id="main-nav" class="caramel-nav" aria-labelledby="main-nav-label">
 
-		<a class="skip-link sr-only sr-only-focusable" href="#content"><?php esc_html_e( 'Skip to content', 'understrap' ); ?></a>
+		<button class="caramel-nav__toggle caramel-nav-toggle collapsed" type="button" data-toggle="collapse" data-target="#caramelMainNavbar" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'caramel' ); ?>">
+			<div class="caramel-nav-toggle__icon">
+				<span></span>
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</button>
 
-		<nav id="main-nav" class="navbar navbar-expand-md bg-primary" aria-labelledby="main-nav-label">
+		<!-- The WordPress Menu goes here -->
+		<?php
+		wp_nav_menu(
+			array(
+				'theme_location'  => 'primary',
+				'container_class' => 'collapse width caramel-nav-collapse',
+				'container_id'    => 'caramelMainNavbar',
+				'menu_class'      => 'caramel-nav__list caramel-nav-list',
+				'fallback_cb'     => '',
+				'menu_id'         => 'main-menu',
+				'depth'           => 2,
+				'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
+			)
+		);
+		?>
 
-			<h2 id="main-nav-label" class="sr-only">
-				<?php esc_html_e( 'Main Navigation', 'understrap' ); ?>
-			</h2>
-
-		<?php if ( 'container' === $container ) : ?>
-			<div class="container">
-		<?php endif; ?>
-
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'understrap' ); ?>">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-
-				<!-- The WordPress Menu goes here -->
-				<?php
-				wp_nav_menu(
-					array(
-						'theme_location'  => 'primary',
-						'container_class' => 'collapse navbar-collapse',
-						'container_id'    => 'navbarNavDropdown',
-						'menu_class'      => 'navbar-nav',
-						'fallback_cb'     => '',
-						'menu_id'         => 'main-menu',
-						'depth'           => 2,
-						'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
-					)
-				);
-				?>
-			<?php if ( 'container' === $container ) : ?>
-			</div><!-- .container -->
-			<?php endif; ?>
-
-		</nav><!-- .site-navigation -->
-
-	</div><!-- #wrapper-navbar end -->
+	</nav><!-- .site-navigation -->

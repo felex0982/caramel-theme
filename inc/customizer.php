@@ -39,9 +39,9 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 		$wp_customize->add_section(
 			'understrap_theme_layout_options',
 			array(
-				'title'       => __( 'Theme Layout Settings', 'understrap' ),
+				'title'       => __( 'Theme Layout Settings', 'caramel' ),
 				'capability'  => 'edit_theme_options',
-				'description' => __( 'Container width and sidebar defaults', 'understrap' ),
+				'description' => __( 'Container width and sidebar defaults', 'caramel' ),
 				'priority'    => apply_filters( 'understrap_theme_layout_options_priority', 160 ),
 			)
 		);
@@ -81,14 +81,14 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 				$wp_customize,
 				'understrap_container_type',
 				array(
-					'label'       => __( 'Container Width', 'understrap' ),
-					'description' => __( 'Choose between Bootstrap\'s container and container-fluid', 'understrap' ),
+					'label'       => __( 'Container Width', 'caramel' ),
+					'description' => __( 'Choose between Bootstrap\'s container and container-fluid', 'caramel' ),
 					'section'     => 'understrap_theme_layout_options',
 					'settings'    => 'understrap_container_type',
 					'type'        => 'select',
 					'choices'     => array(
-						'container'       => __( 'Fixed width container', 'understrap' ),
-						'container-fluid' => __( 'Full width container', 'understrap' ),
+						'container'       => __( 'Fixed width container', 'caramel' ),
+						'container-fluid' => __( 'Full width container', 'caramel' ),
 					),
 					'priority'    => apply_filters( 'understrap_container_type_priority', 10 ),
 				)
@@ -110,20 +110,20 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 				$wp_customize,
 				'understrap_sidebar_position',
 				array(
-					'label'             => __( 'Sidebar Positioning', 'understrap' ),
+					'label'             => __( 'Sidebar Positioning', 'caramel' ),
 					'description'       => __(
 						'Set sidebar\'s default position. Can either be: right, left, both or none. Note: this can be overridden on individual pages.',
-						'understrap'
+						'caramel'
 					),
 					'section'           => 'understrap_theme_layout_options',
 					'settings'          => 'understrap_sidebar_position',
 					'type'              => 'select',
 					'sanitize_callback' => 'understrap_theme_slug_sanitize_select',
 					'choices'           => array(
-						'right' => __( 'Right sidebar', 'understrap' ),
-						'left'  => __( 'Left sidebar', 'understrap' ),
-						'both'  => __( 'Left & Right sidebars', 'understrap' ),
-						'none'  => __( 'No sidebar', 'understrap' ),
+						'right' => __( 'Right sidebar', 'caramel' ),
+						'left'  => __( 'Left sidebar', 'caramel' ),
+						'both'  => __( 'Left & Right sidebars', 'caramel' ),
+						'none'  => __( 'No sidebar', 'caramel' ),
 					),
 					'priority'          => apply_filters( 'understrap_sidebar_position_priority', 20 ),
 				)
