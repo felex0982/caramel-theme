@@ -177,17 +177,62 @@ a {
 // Caramel-Slider
 
 .caramel-slider {
+    position: relative;
+    z-index: 98;
+    max-width: 1500px;
+    margin: 0 auto 100px;
+    box-sizing: border-box;
+    overflow: hidden;
 
+    &__controller {
+        position: absolute;
+        font-size: 60px;
+        margin: 10px;
+        padding: 5px;
+        bottom: 0;
+        color: #fff !important;
+        z-index: 97;
+
+        &--next {
+            right: 0;
+        }
+        &--prev {
+            left: 0;
+        }
+    }
+
+    &__content {
+        position: relative;
+        width: 100%;
+        padding: 25% 0;
+        z-index: 96;
+    }
 }
 
 .caramel-slide {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: none;
+    height: auto;
+
+    &--active {
+        display: flex;
+    }
+
     &__number {
+        display: none;;
         color: #000;
     }
     &__image {
+        position: relative;
         width: 100%;
+        height: auto;
     }
     &__text {
+        display: none;
         color: #000;
     }
 }
