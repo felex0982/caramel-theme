@@ -716,8 +716,8 @@ msgid "Loop Slider Content"
 msgstr "Soll der Slider von vorne anfangen?"
 
 #: inc/customizer.php:81
-msgid "Theme Layout Settings"
-msgstr "Theme Layout Einstellungen"
+msgid "Cantact Information"
+msgstr "Kontakt Information"
 
 #: inc/customizer.php:83
 msgid "Container width and sidebar defaults"

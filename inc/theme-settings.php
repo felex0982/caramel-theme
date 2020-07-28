@@ -34,7 +34,6 @@ if ( ! function_exists( 'understrap_get_theme_default_settings' ) ) {
 		$defaults = array(
 			'understrap_posts_index_style' => 'default',   // Latest blog posts style.
 			'understrap_sidebar_position'  => 'right',     // Sidebar position.
-			'understrap_container_type'    => 'container', // Container width.
 		);
 
 		/**

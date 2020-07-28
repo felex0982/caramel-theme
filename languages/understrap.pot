@@ -323,7 +323,7 @@ msgid "Loop Slider Content"
 msgstr ""
 
 #: inc/customizer.php:81
-msgid "Theme Layout Settings"
+msgid "Cantact Information"
 msgstr ""
 
 #: inc/customizer.php:83

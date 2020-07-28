@@ -67,7 +67,8 @@ get_header();
 </div>
 
 
-<div class="home-banner">
+<div class="caramel-home-info">
+
 </div>
 
 <?php

@@ -12,7 +12,6 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
-$container = get_theme_mod( 'understrap_container_type' );
 ?>
 
 <div class="wrapper" id="archive-wrapper">

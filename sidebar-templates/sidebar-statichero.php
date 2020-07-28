@@ -8,7 +8,6 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$container = get_theme_mod( 'understrap_container_type' );
 ?>
 
 <?php if ( is_active_sidebar( 'statichero' ) ) : ?>
@@ -17,7 +16,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 	<div class="wrapper" id="wrapper-static-hero">
 
-			<div class="<?php echo esc_attr( $container ); ?>" id="wrapper-static-content" tabindex="-1">
+			<div class="" id="wrapper-static-content" tabindex="-1">
 
 				<div class="row">
 

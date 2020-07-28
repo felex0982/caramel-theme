@@ -16,7 +16,6 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
-$container = get_theme_mod( 'understrap_container_type' );
 ?>
 
 <?php if ( is_front_page() && is_home() ) : ?>
@@ -25,7 +24,7 @@ $container = get_theme_mod( 'understrap_container_type' );
 
 <div class="wrapper" id="index-wrapper">
 
-	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
+	<div class="" id="content" tabindex="-1">
 
 		<div class="row">
 
