@@ -13,36 +13,35 @@ defined( 'ABSPATH' ) || exit;
  *
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-if ( ! function_exists( 'understrap_customize_register' ) ) {
+if ( ! function_exists( 'caramel_customize_register' ) ) {
 	/**
 	 * Register basic customizer support.
 	 *
 	 * @param object $wp_customize Customizer reference.
 	 */
-	function understrap_customize_register( $wp_customize ) {
+	function caramel_customize_register( $wp_customize ) {
 		$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 		$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 		$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 	}
 }
-add_action( 'customize_register', 'understrap_customize_register' );
+add_action( 'customize_register', 'caramel_customize_register' );
 
-if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
+if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 	/**
 	 * Register individual settings through customizer's API.
 	 *
 	 * @param WP_Customize_Manager $wp_customize Customizer reference.
 	 */
-	function understrap_theme_customize_register( $wp_customize ) {
+	function caramel_theme_customize_register( $wp_customize ) {
 
 		// Theme layout settings.
 		$wp_customize->add_section(
-			'caramel_cantact_info',//'understrap_theme_layout_options',
+			'caramel_theme_cantact_info',//'understrap_theme_layout_options',
 			array(
 				'title'       => __( 'Cantact Information', 'caramel' ),//__( 'Theme Layout Settings', 'caramel' ),
-				'capability'  => 'edit_theme_options',
 				'description' => __( 'Contact and Social-Media information', 'caramel' ),
-				'priority'    => apply_filters( 'caramel_cantact_info_priority', 20 ),//apply_filters( 'understrap_theme_layout_options_priority', 20 ),
+				'priority'    => 20,//apply_filters( 'understrap_theme_layout_options_priority', 20 ),
 			)
 		);
 
@@ -67,12 +66,42 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 		}
 
 		$wp_customize->add_setting(
+			'contact_info_display',
+			array(
+				'default'           => false,
+				'transport' => 'refresh',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'contact_info_display_email',
+			array(
+				'default'           => false,
+				'transport' => 'refresh',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'contact_info_display_whatsapp',
+			array(
+				'default'           => false,
+				'transport' => 'refresh',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'contact_info_display_instagram',
+			array(
+				'default'           => false,
+				'transport' => 'refresh',
+			)
+		);
+
+		$wp_customize->add_setting(
 			'contact_info_email',
 			array(
 				'default'           => 'info@flellex.de',
-				'type'              => 'text',
-				'sanitize_callback' => 'understrap_theme_slug_sanitize_select',
-				'capability'        => 'edit_theme_options',
+				'transport' => 'refresh',
 			)
 		);
 
@@ -80,9 +109,7 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 			'contact_info_whatsapp',
 			array(
 				'default'           => '01234567891',
-				'type'              => 'text',
-				'sanitize_callback' => 'understrap_theme_slug_sanitize_select',
-				'capability'        => 'edit_theme_options',
+				'transport' => 'refresh',
 			)
 		);
 
@@ -90,9 +117,26 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 			'contact_info_instagram',
 			array(
 				'default'           => 'instagram.com/flellex',
-				'type'              => 'text',
-				'sanitize_callback' => 'understrap_theme_slug_sanitize_select',
-				'capability'        => 'edit_theme_options',
+				'transport' => 'refresh',
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'contact_info_display',
+				array(
+					'label'       => __( 'Show Contact Information', 'caramel' ),
+					'description' => __( 'Enable/Disable the information block', 'caramel' ),
+					'section'     => 'caramel_theme_cantact_info',
+					'settings'    => 'contact_info_display',
+					'type'        => 'radio',
+					'choices'	  => array(
+						false => 'Hide',
+						true => 'Show',
+					),
+					'priority'    => 10,
+				)
 			)
 		);
 
@@ -103,10 +147,28 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 				array(
 					'label'       => __( 'E-Mail', 'caramel' ),
 					'description' => __( 'Put in your contact e-mail', 'caramel' ),
-					'section'     => 'caramel_cantact_info',
+					'section'     => 'caramel_theme_cantact_info',
 					'settings'    => 'contact_info_email',
 					'type'        => 'text',
-					'priority'    => apply_filters( 'caramel_cantact_info_priority', 10 ),
+					'priority'    => 20,
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'contact_info_display_email',
+				array(
+					'section'     => 'caramel_theme_cantact_info',
+					'description' => __( 'show information', 'caramel' ),
+					'settings'    => 'contact_info_display_email',
+					'type'        => 'checkbox',
+					'choices'	  => array(
+						false => 'Hide',
+						true => 'Show',
+					),
+					'priority'    => 30,
 				)
 			)
 		);
@@ -116,12 +178,30 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 				$wp_customize,
 				'contact_info_whatsapp',
 				array(
-					'label'       => __( 'Whatsapp-Number', 'caramel' ),
+					'label'       => __( 'Whatsapp', 'caramel' ),
 					'description' => __( 'Put in your contact number', 'caramel' ),
-					'section'     => 'caramel_cantact_info',
+					'section'     => 'caramel_theme_cantact_info',
 					'settings'    => 'contact_info_whatsapp',
 					'type'        => 'text',
-					'priority'    => apply_filters( 'caramel_cantact_info_priority', 10 ),
+					'priority'    => 40,
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'contact_info_display_whatsapp',
+				array(
+					'section'     => 'caramel_theme_cantact_info',
+					'description' => __( 'show information', 'caramel' ),
+					'settings'    => 'contact_info_display_whatsapp',
+					'type'        => 'checkbox',
+					'choices'	  => array(
+						false => 'Hide',
+						true => 'Show',
+					),
+					'priority'    => 50,
 				)
 			)
 		);
@@ -131,29 +211,37 @@ if ( ! function_exists( 'understrap_theme_customize_register' ) ) {
 				$wp_customize,
 				'contact_info_instagram',
 				array(
-					'label'       => __( 'Instagram-Link', 'caramel' ),
-					'description' => __( 'Put in your Instagram link', 'caramel' ),
-					'section'     => 'caramel_cantact_info',
+					'label'       => __( 'Instagram', 'caramel' ),
+					'description' => __( 'Put in your Instagram-ID', 'caramel' ),
+					'section'     => 'caramel_theme_cantact_info',
 					'settings'    => 'contact_info_instagram',
 					'type'        => 'text',
-					'priority'    => apply_filters( 'caramel_cantact_info_priority', 10 ),
+					'priority'    => 60,
 				)
 			)
 		);
 
-		$wp_customize->add_setting(
-			'understrap_sidebar_position',
-			array(
-				'default'           => 'Name',
-				'type'              => 'text',
-				'sanitize_callback' => 'sanitize_text_field',
-				'capability'        => 'edit_contact_info',
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'contact_info_display_instagram',
+				array(
+					'section'     => 'caramel_theme_cantact_info',
+					'description' => __( 'show information', 'caramel' ),
+					'settings'    => 'contact_info_display_instagram',
+					'type'        => 'checkbox',
+					'choices'	  => array(
+						false => 'Hide',
+						true => 'Show',
+					),
+					'priority'    => 70,
+				)
 			)
 		);
 
 	}
 } // End of if function_exists( 'understrap_theme_customize_register' ).
-add_action( 'customize_register', 'understrap_theme_customize_register' );
+add_action( 'customize_register', 'caramel_theme_customize_register' );
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.

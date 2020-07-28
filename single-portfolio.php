@@ -12,7 +12,7 @@
 get_header();
 ?>
 <main id="site-content" role="main">
-	hallo
+	hallo single-portfolio.php
 	<?php
 	if ( have_posts() ) {
 		while ( have_posts() ) {

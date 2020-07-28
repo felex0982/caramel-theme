@@ -9,12 +9,6 @@ a {
     }
 }
 
-.home-banner {
-    width: 100%;
-    height: 2500px;
-    background-color: #ccc;
-}
-
 .nav-link {
     color: #000;
 }
@@ -177,7 +171,7 @@ a {
 // Caramel-Slider
 
 .caramel-slider {
-    margin-bottom: 400px;
+    margin-bottom: 50px;
 }
 
 .caramel-slide {
@@ -205,6 +199,33 @@ a {
     &__text {
         display: none;
         color: #000;
+    }
+}
+
+.caramel-home-info {
+    text-align: center;
+    width: 100%;
+    margin: 100px 0 100px;
+
+    &__row {
+        padding: 5px;
+    }
+}
+
+.caramel-theme-credit {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+
+    &__link {
+        background-color: #e9e9e9;
+        padding: 3px 10px;
+        border-radius: 10px;
+        font-style: italic;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 600;
     }
 }
 

@@ -14,8 +14,8 @@ get_header();
 
 ?>
 
-Standart Archive
 <div class="wrapper" id="archive-wrapper">
+	HAAAALLLOOO
 				<?php
 				if ( have_posts() ) {
 					?>

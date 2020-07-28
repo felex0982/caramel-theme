@@ -11,8 +11,8 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header();
-
 ?>
+
 <div id="caramel-home-slider" class="caramel-slider carousel slide" data-ride="carousel">
     <ol class="caramel-slider__indicators carousel-indicators">
         <?php
@@ -64,11 +64,6 @@ get_header();
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="sr-only">Next</span>
     </a>
-</div>
-
-
-<div class="caramel-home-info">
-
 </div>
 
 <?php
