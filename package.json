@@ -27,7 +27,9 @@
     "url": "https://github.com/understrap/understrap/issues"
   },
   "homepage": "https://understrap.com",
-  "dependencies": {},
+  "dependencies": {
+    "colcade": "^0.2.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.10.5",
     "@babel/preset-env": "^7.10.4",

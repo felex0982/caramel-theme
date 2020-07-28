@@ -18,8 +18,16 @@ a {
 
     &__custom-logo {
         box-sizing: border-box;
-        max-width: 300px;
-        padding: 30px;
+        max-width: 200px;
+        padding: 20px;
+
+        @media ( min-width: 480px ) {
+            max-width: 300px;
+            padding: 30px;
+        }
+
+        @media ( min-width: 768px ) {
+        }
     }
 }
 
@@ -28,7 +36,11 @@ a {
     z-index: 100;
     top: 0;
     right: 0;
-    margin: 60px 20px;
+    margin: 35px 20px;
+
+    @media ( min-width: 480px ) {
+        margin: 60px 20px;
+    }
     
     &__toggle {
     }
@@ -36,7 +48,16 @@ a {
     &__list {
         box-sizing: border-box;
         width: 100%;
-        padding: 150px 0 0 20px;
+        padding: 100px 0 0 20px;
+        font-size: 20px;
+
+        @media ( min-width: 480px ) {
+            padding: 150px 0 0 20px;
+        }
+
+        @media ( min-width: 768px ) {
+            font-size: 30px;
+        }
     }
 }
 
@@ -157,6 +178,7 @@ a {
     background-color: $primary-background;
     box-sizing: border-box;
     width: 0 !important;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.05);
     @include ease();
 
     &.collapsing {
@@ -177,7 +199,11 @@ a {
 .caramel-slide {
     position: relative;
     width: 100%;
-    padding: 22% 0;
+    padding: 30% 0;
+
+    @media ( min-width: 768px ) {
+        padding: 25% 0;
+    }
 
     &__image-wrapper {
         position: absolute;
@@ -199,6 +225,72 @@ a {
     &__text {
         display: none;
         color: #000;
+    }
+}
+
+.caramel-portfolio-wrapper {
+    width: 100%;
+    padding: 5px 20px;
+    box-sizing: border-box;
+
+    @media ( min-width: 480px ) {
+        padding: 10px 30px;
+    }
+
+    @media ( min-width: 768px ) {
+        padding: 20px 50px;
+    }
+}
+
+.caramel-portfolio-header {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.caramel-archive-title {
+    @media ( min-width: 768px ) {
+        font-size: 100px;
+    }
+}
+
+.caramel-portfolio {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: row;
+
+    &__column {
+        //&--one {}
+        &--two {
+            display: none;
+            @media ( min-width: 480px ) {
+                display: block;
+            }
+        }
+        &--three {
+            display: none;
+            @media ( min-width: 768px ) {
+                display: block;
+            }
+        }
+    }
+}
+
+.caramel-portfolio-item {
+    box-sizing: border-box;
+    max-width: 100%;
+    padding: 5px;
+
+    @media ( min-width: 768px ) {
+        padding: 10px;
+    }
+
+    &__image {
+        max-width: 100%;
+        height: auto;
     }
 }
 

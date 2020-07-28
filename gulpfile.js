@@ -192,6 +192,10 @@ gulp.task( 'scripts', function() {
 		// Adding currently empty javascript file to add on for your own themes´ customizations
 		// Please add any customizations to this .js file only!
 		paths.dev + '/js/custom-javascript.js',
+
+		// Masonry
+
+		paths.dev + '/js/colcade/colcade.js',
 	];
 	gulp
 		.src( scripts, { allowEmpty: true } )
@@ -240,6 +244,11 @@ gulp.task( 'copy-assets', function( done ) {
 	gulp
 		.src( paths.node + '/font-awesome/scss/*.scss' )
 		.pipe( gulp.dest( paths.dev + '/sass/fontawesome' )	);
+
+	// Scroll Magic into /src/js
+	gulp
+		.src( paths.node + '/colcade/colcade.js' )
+		.pipe( gulp.dest( paths.dev + '/js/colcade' ) );
 
 	done();
 } );
