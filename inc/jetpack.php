@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.me/
  *
- * @package UnderStrap
+ *
  */
 
 // Exit if accessed directly.

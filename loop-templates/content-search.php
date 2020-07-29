@@ -2,7 +2,7 @@
 /**
  * Search results partial template
  *
- * @package UnderStrap
+ *
  */
 
 // Exit if accessed directly.

@@ -8,7 +8,7 @@
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package UnderStrap
+ *
  */
 
 // Exit if accessed directly.
@@ -24,44 +24,29 @@ get_header();
 
 <div class="wrapper" id="index-wrapper">
 
-	<div class="" id="content" tabindex="-1">
+	<div class="caramel-portfolio-wrapper">
 
-		<div class="row">
+		<div class="caramel-portfolio" id="archive-wrapper">
+			<?php
+			if ( have_posts() ) {
+				// Start the loop.
+				while ( have_posts() ) {
+					the_post();
 
-			<!-- Do the left sidebar check and opens the primary div -->
-			<?php get_template_part( 'global-templates/left-sidebar-check' ); ?>
-
-			<main class="site-main" id="main">
-
-				<?php
-				if ( have_posts() ) {
-					// Start the Loop.
-					while ( have_posts() ) {
-						the_post();
-
-						/*
-						 * Include the Post-Format-specific template for the content.
-						 * If you want to override this in a child theme, then include a file
-						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-						 */
-						get_template_part( 'loop-templates/content', get_post_format() );
-					}
-				} else {
-					get_template_part( 'loop-templates/content', 'none' );
+					get_template_part( 'loop-templates/content-portfolio', get_post_format() );
 				}
-				?>
+			} else {
+				get_template_part( 'loop-templates/content', 'none' );
+			}
+			?>
+			
+			<div class="caramel-portfolio__column caramel-portfolio__column--one"></div>
+			<div class="caramel-portfolio__column caramel-portfolio__column--two"></div>
+			<div class="caramel-portfolio__column caramel-portfolio__column--three"></div>
 
-			</main><!-- #main -->
-
-			<!-- The pagination component -->
-			<?php understrap_pagination(); ?>
-
-			<!-- Do the right sidebar check -->
-			<?php get_template_part( 'global-templates/right-sidebar-check' ); ?>
-
-		</div><!-- .row -->
-
-	</div><!-- #content -->
+		</div>
+		
+	</div>
 
 </div><!-- #index-wrapper -->
 

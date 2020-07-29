@@ -2,7 +2,7 @@
 /**
  * UnderStrap modify editor
  *
- * @package UnderStrap
+ *
  */
 
 // Exit if accessed directly.

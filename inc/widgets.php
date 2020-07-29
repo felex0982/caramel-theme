@@ -2,7 +2,7 @@
 /**
  * Declaring widgets
  *
- * @package UnderStrap
+ *
  */
 
 // Exit if accessed directly.

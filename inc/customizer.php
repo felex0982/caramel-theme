@@ -2,7 +2,7 @@
 /**
  * UnderStrap Theme Customizer
  *
- * @package UnderStrap
+ *
  */
 
 // Exit if accessed directly.

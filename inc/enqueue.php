@@ -2,7 +2,7 @@
 /**
  * UnderStrap enqueue scripts
  *
- * @package UnderStrap
+ *
  */
 
 // Exit if accessed directly.

@@ -4,7 +4,7 @@
  *
  * Displays all of the <head> section and everything up till <div id="content">
  *
- * @package UnderStrap
+ *
  */
 
 // Exit if accessed directly.
@@ -66,7 +66,6 @@ defined( 'ABSPATH' ) || exit;
 				'fallback_cb'     => '',
 				'menu_id'         => 'main-menu',
 				'depth'           => 2,
-				'walker'          => new Understrap_WP_Bootstrap_Navwalker(),
 			)
 		);
 		?>
