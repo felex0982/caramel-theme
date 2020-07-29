@@ -19,9 +19,6 @@ $email = get_theme_mod( 'contact_info_email' );
 $whatsapp = get_theme_mod( 'contact_info_whatsapp' );
 ?>
 
-<?php get_template_part( 'sidebar-templates/sidebar', 'footerfull' ); ?>
-
-
 	<footer class="">
 
 		<?php if($showContact) {
