@@ -3,7 +3,6 @@
 console.log("------ Welcome to Caramel https://caramel.flellex.de ------");
 
 // Colcade Masonry
-
 if(document.querySelector('.caramel-portfolio')) {
     var colcade = new Colcade('.caramel-portfolio', {
         columns: '.caramel-portfolio__column',
@@ -11,12 +10,8 @@ if(document.querySelector('.caramel-portfolio')) {
     });
 }
 
-
 // BasicLightbox
-
 const lightboxItems = document.querySelectorAll('article[data-lightbox]');
-console.log(lightboxItems.length);
-
 if(lightboxItems.length > 0) {
     lightboxItems.forEach(item => {
         item.addEventListener('click', () => {
