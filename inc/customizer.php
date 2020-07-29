@@ -35,13 +35,23 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 	 */
 	function caramel_theme_customize_register( $wp_customize ) {
 
-		// Theme layout settings.
+		// CONTACT INFO
 		$wp_customize->add_section(
 			'caramel_theme_cantact_info',//'understrap_theme_layout_options',
 			array(
 				'title'       => __( 'Cantact Information', 'caramel' ),//__( 'Theme Layout Settings', 'caramel' ),
 				'description' => __( 'Contact and Social-Media information', 'caramel' ),
 				'priority'    => 20,//apply_filters( 'understrap_theme_layout_options_priority', 20 ),
+			)
+		);
+
+		// CARAMEL PORTFOLIO MODE
+		$wp_customize->add_section(
+			'caramel_portfolio_mode',//'understrap_theme_layout_options',
+			array(
+				'title'       => __( 'Portfolio Mode', 'caramel' ),//__( 'Theme Layout Settings', 'caramel' ),
+				'description' => __( 'Choose how you want to present your work', 'caramel' ),
+				'priority'    => 30,//apply_filters( 'understrap_theme_layout_options_priority', 20 ),
 			)
 		);
 
@@ -117,6 +127,14 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 			'contact_info_instagram',
 			array(
 				'default'           => 'instagram.com/flellex',
+				'transport' => 'refresh',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'portfolio_use_lightbox',
+			array(
+				'default'           => true,
 				'transport' => 'refresh',
 			)
 		);
@@ -235,6 +253,25 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 						true => 'Show',
 					),
 					'priority'    => 70,
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'portfolio_use_lightbox',
+				array(
+					'label'       => __( 'Lightbox-Toggle', 'caramel' ),
+					'description' => __( 'Choose between a image based or project page portfolio', 'caramel' ),
+					'section'     => 'caramel_portfolio_mode',
+					'settings'    => 'portfolio_use_lightbox',
+					'type'        => 'radio',
+					'choices'	  => array(
+						false => 'Project Page',
+						true => 'Image',
+					),
+					'priority'    => 10,
 				)
 			)
 		);
