@@ -28,6 +28,7 @@
   },
   "homepage": "https://understrap.com",
   "dependencies": {
+    "basiclightbox": "^5.0.3",
     "colcade": "^0.2.0"
   },
   "devDependencies": {

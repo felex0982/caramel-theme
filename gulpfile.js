@@ -196,6 +196,10 @@ gulp.task( 'scripts', function() {
 		// Masonry
 
 		paths.dev + '/js/colcade/colcade.js',
+
+		// Lightbox
+
+		paths.dev + '/js/basiclightbox/basiclightbox.js',
 	];
 	gulp
 		.src( scripts, { allowEmpty: true } )
@@ -249,6 +253,14 @@ gulp.task( 'copy-assets', function( done ) {
 	gulp
 		.src( paths.node + '/colcade/colcade.js' )
 		.pipe( gulp.dest( paths.dev + '/js/colcade' ) );
+
+	gulp
+		.src( paths.node + '/basiclightbox/dist/basiclightbox.min.js' )
+		.pipe( gulp.dest( paths.dev + '/js/basiclightbox' ) );
+
+	gulp
+		.src( paths.node + '/basiclightbox/dist/basiclightbox.min.css' )
+		.pipe( gulp.dest( paths.dev + '/css/basiclightbox' )	);
 
 	done();
 } );
