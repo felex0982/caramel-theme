@@ -196,10 +196,7 @@ gulp.task( 'scripts', function() {
 		// Masonry
 
 		paths.dev + '/js/colcade/colcade.js',
-
-		// Lightbox
-
-		paths.dev + '/js/basiclightbox/basiclightbox.js',
+		
 	];
 	gulp
 		.src( scripts, { allowEmpty: true } )
