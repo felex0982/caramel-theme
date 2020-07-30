@@ -18,17 +18,6 @@ $useLightbox = get_theme_mod( 'portfolio_use_lightbox' );
 				<?php if($useLightbox){echo 'data-lightbox="' . get_the_post_thumbnail_url() . '"';} ?>
 				id="post-<?php the_ID(); ?>">
 
-		<header style="display: none;" class="entry-header">
-
-			<?php
-			the_title(
-				sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ),
-				'</a></h2>'
-			);
-			?>
-
-		</header><!-- .entry-header -->
-
 		<?php
 		if($useLightbox == false){
 			echo '<a href="' . esc_url( get_permalink()) . '">';

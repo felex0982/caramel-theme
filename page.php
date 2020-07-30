@@ -17,33 +17,20 @@ get_header();
 
 ?>
 
-<div class="wrapper" id="page-wrapper">
+<div class="caramel-single-wrapper" id="single-wrapper">
 
-	<div class="" id="content" tabindex="-1">
+	<div class="caramel-single-content" id="content" tabindex="-1">
 
-		<div class="row">
+		<?php
+		while ( have_posts() ) {
+			the_post();
+			get_template_part( 'loop-templates/content', 'single' );
+		}
+		?>
 
-			<main class="site-main" id="main">
+	</div>
 
-				<?php
-				while ( have_posts() ) {
-					the_post();
-					get_template_part( 'loop-templates/content', 'page' );
-
-					// If comments are open or we have at least one comment, load up the comment template.
-					if ( comments_open() || get_comments_number() ) {
-						comments_template();
-					}
-				}
-				?>
-
-			</main><!-- #main -->
-
-		</div><!-- .row -->
-
-	</div><!-- #content -->
-
-</div><!-- #page-wrapper -->
+</div>
 
 <?php
 get_footer();

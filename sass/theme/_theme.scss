@@ -200,7 +200,7 @@ a {
 .caramel-slide {
     position: relative;
     width: 100%;
-    padding: 30% 0;
+    padding: 27% 0;
 
     @media ( min-width: 768px ) {
         padding: 25% 0;
@@ -250,6 +250,12 @@ a {
 }
 
 .caramel-archive-title {
+    @media ( min-width: 768px ) {
+        font-size: 100px;
+    }
+}
+
+.caramel-entry-title {
     @media ( min-width: 768px ) {
         font-size: 100px;
     }
@@ -340,6 +346,79 @@ a {
     }
 }
 
+.caramel-portfolio-projects-wrapper {
+    max-width: 1400px;
+    margin: 100px auto 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.caramel-portfolio-project {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 28% 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 98;
+
+    @media ( min-width: 500px ) {
+        width: 50%;
+        padding: 14% 0;
+    }
+
+    @media ( min-width: 1000px ) {
+        width: 33.3%;
+        padding: 9.515% 0;
+    }
+
+    &__header {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+        font-size: 30px;
+        font-weight: 600;
+        z-index: 98;
+        background-color:rgba(0,0,0,0.07);
+        margin: 10px;
+        transition: all 0.3s;
+
+        @media ( min-width: 768px ) {
+            opacity: 0;
+        }
+
+        &:hover {
+            @media ( min-width: 768px ) {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__image-wrapper {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 97;
+        margin: 10px;
+        overflow: hidden;
+    }
+
+    &__image {
+        width: 100%;
+        height: auto;
+    }
+}
+
 // WP-Gutenberg Overwrite
 
 .blocks-gallery-item {
@@ -354,6 +433,12 @@ a {
 
     @media ( min-width: 1000px ) {
         flex-basis: 33%;
+    }
+}
+
+.caramel-entry-content {
+    p {
+        max-width: 600px;
     }
 }
 

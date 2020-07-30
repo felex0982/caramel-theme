@@ -11,6 +11,8 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header();
+
+$useLightbox = get_theme_mod( 'portfolio_use_lightbox' );
 ?>
 
 <div id="caramel-home-slider" class="caramel-slider carousel slide" data-ride="carousel">
@@ -65,6 +67,27 @@ get_header();
         <span class="sr-only">Next</span>
     </a>
 </div>
+
+<?php
+
+if(!$useLightbox){
+    echo '<div class="caramel-portfolio-projects-wrapper">';
+    $query = new WP_Query(array(
+        'post_type' => 'portfolio',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+    ));
+    
+    
+    while ($query->have_posts()) {
+        $query->the_post();
+        get_template_part( 'loop-templates/content-portfolio-project', get_post_format() );
+    }
+    wp_reset_query();
+
+    echo '</div>';
+}
+?>
 
 <?php
 get_footer();

@@ -98,7 +98,6 @@ function caramel_custom_mainslider_image(){
 		'hierarchical' => false,
 		'supports' => array(
 			'title',
-			'excerpt',
 			'thumbnail',
 		),
 		'menu_position' => 4,
@@ -123,7 +122,7 @@ function caramel_custom_taxanomies(){
 	   'update_item' => 'Update Genre',
 	   'add_new_item' => 'Add New Genre',
 	   'new_item_name' => 'New Genre Name',
-	   'menu_name' => 'Genre'
+	   'menu_name' => 'Genre',
    );
    $args = array(
 	   'labels' => $labels,
@@ -131,7 +130,8 @@ function caramel_custom_taxanomies(){
 	   'show_ui' => true,
 	   'show_admin_column' => true,
 	   'query_var' => true,
-	   'rewrite' => array('slug' => 'genre')
+	   'rewrite' => array('slug' => 'genre'),
+	   'show_in_rest' => true,
    );
 
    register_taxonomy('genre', array('portfolio'), $args);
