@@ -54,9 +54,10 @@ function caramel_custom_portfolio(){
 		'hierarchical' => false,
 		'supports' => array(
 			'title',
-			'excerpt',
+			'editor',
 			'thumbnail',
 		),
+		'show_in_rest' => true,
 		/*'taxonomies' => array(
 			'category',
 			'post_tag'
