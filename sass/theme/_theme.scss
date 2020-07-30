@@ -323,3 +323,37 @@ a {
     }
 }
 
+.caramel-single-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.caramel-single-content {
+    padding: 10px;
+
+    @media ( min-width: 480px ) {
+        padding: 20px;
+    }
+
+    @media ( min-width: 768px ) {
+        padding: 30px;
+    }
+}
+
+// WP-Gutenberg Overwrite
+
+.blocks-gallery-item {
+    box-sizing: border-box;
+    flex-basis: 100%;
+    padding: 8px;
+    margin: 0 !important;
+
+    @media ( min-width: 500px ) {
+        flex-basis: 50%;
+    }
+
+    @media ( min-width: 1000px ) {
+        flex-basis: 33%;
+    }
+}
+
