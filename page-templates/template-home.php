@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
-$useLightbox = get_theme_mod( 'portfolio_use_lightbox' );
+$usingPortfolioImageMode = get_theme_mod( 'portfolio_image_mode' );
 ?>
 
 <div id="caramel-home-slider" class="caramel-slider carousel slide" data-ride="carousel">
@@ -70,7 +70,7 @@ $useLightbox = get_theme_mod( 'portfolio_use_lightbox' );
 
 <?php
 
-if(!$useLightbox){
+if(!$usingPortfolioImageMode){
     echo '<div class="caramel-portfolio-projects-wrapper">';
     $query = new WP_Query(array(
         'post_type' => 'portfolio',

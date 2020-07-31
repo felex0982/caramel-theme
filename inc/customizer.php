@@ -132,7 +132,7 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 		);
 
 		$wp_customize->add_setting(
-			'portfolio_use_lightbox',
+			'portfolio_image_mode',
 			array(
 				'default'           => true,
 				'transport' => 'refresh',
@@ -260,12 +260,12 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
-				'portfolio_use_lightbox',
+				'portfolio_image_mode',
 				array(
 					'label'       => __( 'Lightbox-Toggle', 'caramel' ),
 					'description' => __( 'Choose between a image based or project page portfolio', 'caramel' ),
 					'section'     => 'caramel_portfolio_mode',
-					'settings'    => 'portfolio_use_lightbox',
+					'settings'    => 'portfolio_image_mode',
 					'type'        => 'radio',
 					'choices'	  => array(
 						false => 'Project Page',
