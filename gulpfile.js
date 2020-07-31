@@ -236,16 +236,6 @@ gulp.task( 'copy-assets', function( done ) {
 
 	////////////////// End Bootstrap 4 Assets /////////////////////////
 
-	// Copy all Font Awesome Fonts
-	gulp
-		.src( paths.node + '/font-awesome/fonts/**/*.{ttf,woff,woff2,eot,svg}' )
-		.pipe( gulp.dest( paths.fonts ) );
-
-	// Copy all Font Awesome SCSS files
-	gulp
-		.src( paths.node + '/font-awesome/scss/*.scss' )
-		.pipe( gulp.dest( paths.dev + '/sass/fontawesome' )	);
-
 	// Scroll Magic into /src/js
 	gulp
 		.src( paths.node + '/colcade/colcade.js' )
@@ -267,8 +257,6 @@ gulp.task( 'clean-vendor-assets', function() {
 	return del( [
 		paths.dev + '/js/bootstrap4',
 		paths.dev + '/sass/bootstrap4',
-		paths.fonts + '/*wesome*.{ttf,woff,woff2,eot,svg}',
-		paths.dev + '/sass/fontawesome',
 		paths.js + paths.vendor,
 	] );
 } );
