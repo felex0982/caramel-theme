@@ -11,7 +11,7 @@ Caramel is a simple and clean Portfolio-Theme for Wordpress, aming for a slick l
 
 ## Basic Features
 
-- Caramel is build on Understrap and is making use of gulp to make the dev process a lot smother
+- Caramel is build on Understrap and is making use of gulp to make the dev process a lot smoother
 
 ## Development
 - Run: `$ npm install`
