@@ -1,12 +1,8 @@
 <?php
 /**
- * The main template file
+ * Template Name: Template Home
  *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ * Template for displaying a page without sidebar even if a sidebar widget is published.
  *
  *
  */
@@ -16,39 +12,82 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
+$usingPortfolioImageMode = get_theme_mod( 'portfolio_image_mode' );
 ?>
 
-<?php if ( is_front_page() && is_home() ) : ?>
-	<?php get_template_part( 'global-templates/hero' ); ?>
-<?php endif; ?>
+<div id="caramel-home-slider" class="caramel-slider carousel slide" data-ride="carousel">
+    <ol class="caramel-slider__indicators carousel-indicators">
+        <?php
+            $query = new WP_query(
+                array(
+                    'post_type' => array('sliderimage'),
+                    'post_status' => 'publish',
+                )
+            );
+            $i = 0;
+            foreach ($query->posts as $post) {
+                ?>
+                    <li data-target="#caramel-home-slider" data-slide-to="<?php echo($i); ?>" class="<?php if($i == 0){echo('active');} ?>"></li>
+                <?php
+                $i++;
+            }
+        ?>
+    </ol>
+    <div class="caramel-slider__content carousel-inner">
+        <?php
+            $query = new WP_query(
+                array(
+                    'post_type' => array('sliderimage'),
+                    'post_status' => 'publish',
+                )
+            );
+            $i = 1;
+            foreach ($query->posts as $post) {
+                ?>
+                <div class="caramel-slide carousel-item <?php if($i == 1){echo('active');} ?>">
+                    <div class="caramel-slide__number"><?php echo($i); ?></div>
+                    <div class="caramel-slide__image-wrapper">
+                        <?php
+                            the_post_thumbnail('', array('class' => 'caramel-slide__image'));
+                        ?>
+                    </div>
+                    <div class="caramel-slide__text"><?php echo(get_the_title($post)); ?></div>
+                </div>
+                <?php
+                $i++;
+                }
+            ?>
+    </div>
+    <a class="caramel-slider__control carousel-control-prev" href="#caramel-home-slider" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="caramel-slider__control carousel-control-next" href="#caramel-home-slider" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
 
-<div class="wrapper" id="index-wrapper">
+<?php
 
-	<div class="caramel-portfolio-wrapper">
+if(!$usingPortfolioImageMode){
+    echo '<div class="caramel-portfolio-projects-wrapper">';
+    $query = new WP_Query(array(
+        'post_type' => 'portfolio',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+    ));
+    
+    
+    while ($query->have_posts()) {
+        $query->the_post();
+        get_template_part( 'loop-templates/content-portfolio-project', get_post_format() );
+    }
+    wp_reset_query();
 
-		<div class="caramel-portfolio" id="archive-wrapper">
-			<?php
-			if ( have_posts() ) {
-				// Start the loop.
-				while ( have_posts() ) {
-					the_post();
-
-					get_template_part( 'loop-templates/content-portfolio', get_post_format() );
-				}
-			} else {
-				get_template_part( 'loop-templates/content', 'none' );
-			}
-			?>
-			
-			<div class="caramel-portfolio__column caramel-portfolio__column--one"></div>
-			<div class="caramel-portfolio__column caramel-portfolio__column--two"></div>
-			<div class="caramel-portfolio__column caramel-portfolio__column--three"></div>
-
-		</div>
-		
-	</div>
-
-</div><!-- #index-wrapper -->
+    echo '</div>';
+}
+?>
 
 <?php
 get_footer();
