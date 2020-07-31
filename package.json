@@ -1,7 +1,7 @@
 {
-  "name": "understrap",
-  "version": "0.9.4",
-  "description": "WordPress Theme framework",
+  "name": "caramel",
+  "version": "0.1",
+  "description": "Minimalistic Wordpress Portfolio Theme",
   "main": "index.js",
   "scripts": {
     "postinstall": "gulp copy-assets"
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/understrap/understrap.git"
+    "url": "https://github.com/felex0982/caramel-theme.git"
   },
   "keywords": [
     "wordpress",
@@ -21,12 +21,12 @@
     "bootstrap",
     "underscores"
   ],
-  "author": "The UnderStrap Authors (https://github.com/understrap/understrap/graphs/contributors)",
+  "author": "The Caramel Author/s (hhttps://github.com/felex0982/caramel-theme/graphs/contributors)",
   "license": "GPL-2.0",
   "bugs": {
-    "url": "https://github.com/understrap/understrap/issues"
+    "url": "https://github.com/felex0982/caramel-theme/issues"
   },
-  "homepage": "https://understrap.com",
+  "homepage": "https://caramel.flellex.com",
   "dependencies": {
     "basiclightbox": "^5.0.3",
     "colcade": "^0.2.0"

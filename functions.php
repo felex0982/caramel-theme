@@ -1,6 +1,6 @@
 <?php
 /**
- * UnderStrap functions and definitions
+ * Caramel functions and definitions
  *
  *
  */
@@ -8,7 +8,7 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$understrap_includes = array(
+$caramel_includes = array(
 	'/theme-settings.php',                  // Initialize theme default settings.
 	'/setup.php',                           // Theme setup and custom theme supports.
 	'/enqueue.php',                         // Enqueue scripts and styles.
@@ -21,7 +21,7 @@ $understrap_includes = array(
 	'/deprecated.php',                      // Load deprecated functions.
 );
 
-foreach ( $understrap_includes as $file ) {
+foreach ( $caramel_includes as $file ) {
 	require_once get_template_directory() . '/inc' . $file;
 }
 

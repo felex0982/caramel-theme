@@ -133,17 +133,17 @@ if ( ! function_exists( 'understrap_category_transient_flusher' ) ) {
 	}
 }
 
-if ( ! function_exists( 'understrap_body_attributes' ) ) {
+if ( ! function_exists( 'caramel_body_attributes' ) ) {
 	/**
 	 * Displays the attributes for the body element.
 	 */
-	function understrap_body_attributes() {
+	function caramel_body_attributes() {
 		/**
 		 * Filters the body attributes.
 		 *
 		 * @param array $atts An associative array of attributes.
 		 */
-		$atts = array_unique( apply_filters( 'understrap_body_attributes', $atts = array() ) );
+		$atts = array_unique( apply_filters( 'caramel_body_attributes', $atts = array() ) );
 		if ( ! is_array( $atts ) || empty( $atts ) ) {
 			return;
 		}

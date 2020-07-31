@@ -9,21 +9,7 @@ Version: 1.0
 Text Domain: caramel
 Tags: Portfolio
 
+Caramel is a simple and clean Portfolio-Theme for Wordpress, aming for a slick looking site, set up in minutes and not depanding on any Pagebuilders to achive that.
+Caramel is build on Understrap.
 
-This theme, like WordPress, is licensed under the GPL.
-UnderStrap is based on Underscores https://underscores.me/, (C) 2012-2016 Automattic, Inc.
-
-Resource Licenses:
-Font Awesome: http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
-Bootstrap: https://getbootstrap.com | https://github.com/twbs/bootstrap/blob/master/LICENSE (Code licensed under MIT, documentation under CC BY 3.0.)
-and of course
-jQuery: https://jquery.org | (Code licensed under MIT)
-WP Bootstrap Navwalker by Edward McIntyre: https://github.com/twittem/wp-bootstrap-navwalker | GNU GPL
-*/
-
-/*
-This file is just used to identify the theme in WordPress.
-The compiled CSS output can be found in /css/theme.css
-The SASS sources for it can be found in /sass/
-The dependencies can be found in /src/ after running "gulp copy-assets" terminal command
 */

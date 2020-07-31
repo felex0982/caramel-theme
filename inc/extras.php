@@ -133,20 +133,20 @@ if ( ! function_exists( 'understrap_mobile_web_app_meta' ) ) {
 }
 add_action( 'wp_head', 'understrap_mobile_web_app_meta' );
 
-if ( ! function_exists( 'understrap_default_body_attributes' ) ) {
+if ( ! function_exists( 'caramel_default_body_attributes' ) ) {
 	/**
 	 * Adds schema markup to the body element.
 	 *
 	 * @param array $atts An associative array of attributes.
 	 * @return array
 	 */
-	function understrap_default_body_attributes( $atts ) {
+	function caramel_default_body_attributes( $atts ) {
 		$atts['itemscope'] = '';
 		$atts['itemtype']  = 'http://schema.org/WebSite';
 		return $atts;
 	}
 }
-add_filter( 'understrap_body_attributes', 'understrap_default_body_attributes' );
+add_filter( 'caramel_body_attributes', 'caramel_default_body_attributes' );
 
 // Escapes all occurances of 'the_archive_description'.
 add_filter( 'get_the_archive_description', 'understrap_escape_the_archive_description' );

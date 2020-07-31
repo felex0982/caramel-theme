@@ -1,6 +1,6 @@
 <?php
 /**
- * UnderStrap Theme Customizer
+ * Caramel Theme Customizer
  *
  *
  */
@@ -37,21 +37,21 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 
 		// CONTACT INFO
 		$wp_customize->add_section(
-			'caramel_theme_cantact_info',//'understrap_theme_layout_options',
+			'caramel_theme_cantact_info',
 			array(
-				'title'       => __( 'Cantact Information', 'caramel' ),//__( 'Theme Layout Settings', 'caramel' ),
+				'title'       => __( 'Cantact Information', 'caramel' ),
 				'description' => __( 'Contact and Social-Media information', 'caramel' ),
-				'priority'    => 20,//apply_filters( 'understrap_theme_layout_options_priority', 20 ),
+				'priority'    => 20,
 			)
 		);
 
 		// CARAMEL PORTFOLIO MODE
 		$wp_customize->add_section(
-			'caramel_portfolio_mode',//'understrap_theme_layout_options',
+			'caramel_portfolio_mode',
 			array(
-				'title'       => __( 'Portfolio Mode', 'caramel' ),//__( 'Theme Layout Settings', 'caramel' ),
+				'title'       => __( 'Portfolio Mode', 'caramel' ),
 				'description' => __( 'Choose how you want to present your work', 'caramel' ),
-				'priority'    => 30,//apply_filters( 'understrap_theme_layout_options_priority', 20 ),
+				'priority'    => 30,
 			)
 		);
 
@@ -62,7 +62,7 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 		 * @param WP_Customize_Setting $setting Setting instance.
 		 * @return string Sanitized slug if it is a valid choice; otherwise, the setting default.
 		 */
-		function understrap_theme_slug_sanitize_select( $input, $setting ) {
+		function caramel_theme_slug_sanitize_select( $input, $setting ) {
 
 			// Ensure input is a slug (lowercase alphanumeric characters, dashes and underscores are allowed only).
 			$input = sanitize_key( $input );
@@ -277,19 +277,19 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 		);
 
 	}
-} // End of if function_exists( 'understrap_theme_customize_register' ).
+}
 add_action( 'customize_register', 'caramel_theme_customize_register' );
 
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
-if ( ! function_exists( 'understrap_customize_preview_js' ) ) {
+if ( ! function_exists( 'caramel_customize_preview_js' ) ) {
 	/**
 	 * Setup JS integration for live previewing.
 	 */
-	function understrap_customize_preview_js() {
+	function caramel_customize_preview_js() {
 		wp_enqueue_script(
-			'understrap_customizer',
+			'caramel_customizer',
 			get_template_directory_uri() . '/js/customizer.js',
 			array( 'customize-preview' ),
 			'20130508',
@@ -297,4 +297,4 @@ if ( ! function_exists( 'understrap_customize_preview_js' ) ) {
 		);
 	}
 }
-add_action( 'customize_preview_init', 'understrap_customize_preview_js' );
+add_action( 'customize_preview_init', 'caramel_customize_preview_js' );

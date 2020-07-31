@@ -10,15 +10,15 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-add_action( 'after_setup_theme', 'understrap_wpcom_setup' );
+add_action( 'after_setup_theme', 'caramel_wpcom_setup' );
 
-if ( ! function_exists( 'understrap_wpcom_setup' ) ) {
+if ( ! function_exists( 'caramel_wpcom_setup' ) ) {
 	/**
 	 * Adds support for wp.com-specific theme functions.
 	 *
 	 * @global array $themecolors
 	 */
-	function understrap_wpcom_setup() {
+	function caramel_wpcom_setup() {
 		global $themecolors;
 
 		// Set theme colors for third party services.
