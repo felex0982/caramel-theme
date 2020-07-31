@@ -34,5 +34,5 @@ Caramel is a simple and clean Portfolio-Theme for Wordpress, aming for a slick l
 - Caramel is using BEM
 
 ## WIP
-- Uncluttering all the no needed features of Understrap, Caramel should stay minimalistc, also regarding the used files in Wordpress-Hierarchy
+- Uncluttering all the not needed features of Understrap, Caramel should stay minimalistc, also regarding the used files in Wordpress-Hierarchy
 - At some point getting rid of jQuery, and switching to Bootstrap-Components
