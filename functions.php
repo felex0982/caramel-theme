@@ -18,7 +18,6 @@ $understrap_includes = array(
 	'/extras.php',                          // Custom functions that act independently of the theme templates.
 	'/customizer.php',                      // Customizer additions.
 	'/jetpack.php',                         // Load Jetpack compatibility file.
-	'/woocommerce.php',                     // Load WooCommerce functions.
 	'/editor.php',                          // Load Editor functions.
 	'/deprecated.php',                      // Load deprecated functions.
 );
