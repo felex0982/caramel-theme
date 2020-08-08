@@ -55,6 +55,16 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 			)
 		);
 
+		// CARAMEL PORTFOLIO MODE
+		$wp_customize->add_section(
+			'caramel_landingpage',
+			array(
+				'title'       => __( 'Landingpage', 'caramel' ),
+				'description' => __( 'Settings of your homepage', 'caramel' ),
+				'priority'    => 35,
+			)
+		);
+
 		/**
 		 * Select sanitization function
 		 *
@@ -135,6 +145,46 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 			'portfolio_image_mode',
 			array(
 				'default'           => true,
+				'transport' => 'refresh',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'landingpage_slider_fullwidth',
+			array(
+				'default'           => true,
+				'transport' => 'refresh',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'landingpage_slider_controlls',
+			array(
+				'default'           => true,
+				'transport' => 'refresh',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'landingpage_showreels',
+			array(
+				'default'           => false,
+				'transport' => 'refresh',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'landingpage_showreels_title',
+			array(
+				'default'           => 'Showreels',
+				'transport' => 'refresh',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'landingpage_showreel_one_link',
+			array(
+				'default'           => 'Showreels',
 				'transport' => 'refresh',
 			)
 		);
@@ -275,7 +325,93 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 				)
 			)
 		);
+		
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'landingpage_slider_fullwidth',
+				array(
+					'label'       => __( 'Fullwidth-Slider', 'caramel' ),
+					'description' => __( 'enable full width for slider', 'caramel' ),
+					'section'     => 'caramel_landingpage',
+					'settings'    => 'landingpage_slider_fullwidth',
+					'type'        => 'radio',
+					'choices'	  => array(
+						true => 'Fullwidth',
+						false => 'With Whitespace',
+					),
+					'priority'    => 10,
+				)
+			)
+		);
 
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'landingpage_slider_controlls',
+				array(
+					'label'       => __( 'Slider Controlls', 'caramel' ),
+					'description' => __( 'enable controll elements of Slider', 'caramel' ),
+					'section'     => 'caramel_landingpage',
+					'settings'    => 'landingpage_slider_controlls',
+					'type'        => 'radio',
+					'choices'	  => array(
+						true => 'on',
+						false => 'off',
+					),
+					'priority'    => 20,
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'landingpage_showreels',
+				array(
+					'label'       => __( 'Showreel Section', 'caramel' ),
+					'description' => __( 'turn on a section for your showreel videos', 'caramel' ),
+					'section'     => 'caramel_landingpage',
+					'settings'    => 'landingpage_showreels',
+					'type'        => 'radio',
+					'choices'	  => array(
+						true => 'on',
+						false => 'off',
+					),
+					'priority'    => 30,
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'landingpage_showreels_title',
+				array(
+					'label'       => __( 'Showreel Title', 'caramel' ),
+					'description' => __( 'Put in a title for your showreel section', 'caramel' ),
+					'section'     => 'caramel_landingpage',
+					'settings'    => 'landingpage_showreels_title',
+					'type'        => 'text',
+					'priority'    => 40,
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'landingpage_showreel_one_link',
+				array(
+					'label'       => __( 'Showreel-One', 'caramel' ),
+					'description' => __( 'Put in a link to your showreel vimeo video', 'caramel' ),
+					'section'     => 'caramel_landingpage',
+					'settings'    => 'landingpage_showreel_one_link',
+					'type'        => 'text',
+					'priority'    => 40,
+				)
+			)
+		);
 	}
 }
 add_action( 'customize_register', 'caramel_theme_customize_register' );

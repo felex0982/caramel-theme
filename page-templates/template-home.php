@@ -13,23 +13,29 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 
 $usingPortfolioImageMode = get_theme_mod( 'portfolio_image_mode' );
+$fullWidthSlider = get_theme_mod( 'landingpage_slider_fullwidth' );
+$sliderControlls = get_theme_mod( 'landingpage_slider_controlls' );
+$showreelSection = get_theme_mod( 'landingpage_showreels' );
+$showreelsTitle = get_theme_mod( 'landingpage_showreels_title' );
 ?>
 
-<div id="caramel-home-slider" class="caramel-slider carousel slide" data-ride="carousel">
+<div id="caramel-home-slider" class="caramel-slider carousel slide <?php if($fullWidthSlider){ echo 'caramel-slider--fullwidth';} ?>" data-ride="carousel">
     <ol class="caramel-slider__indicators carousel-indicators">
         <?php
-            $query = new WP_query(
-                array(
-                    'post_type' => array('sliderimage'),
-                    'post_status' => 'publish',
-                )
-            );
-            $i = 0;
-            foreach ($query->posts as $post) {
-                ?>
-                    <li data-target="#caramel-home-slider" data-slide-to="<?php echo($i); ?>" class="<?php if($i == 0){echo('active');} ?>"></li>
-                <?php
-                $i++;
+            if($sliderControlls){
+                $query = new WP_query(
+                    array(
+                        'post_type' => array('sliderimage'),
+                        'post_status' => 'publish',
+                    )
+                );
+                $i = 0;
+                foreach ($query->posts as $post) {
+                    ?>
+                        <li data-target="#caramel-home-slider" data-slide-to="<?php echo($i); ?>" class="<?php if($i == 0){echo('active');} ?>"></li>
+                    <?php
+                    $i++;
+                }
             }
         ?>
     </ol>
@@ -58,17 +64,33 @@ $usingPortfolioImageMode = get_theme_mod( 'portfolio_image_mode' );
                 }
             ?>
     </div>
-    <a class="caramel-slider__control carousel-control-prev" href="#caramel-home-slider" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="caramel-slider__control carousel-control-next" href="#caramel-home-slider" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
+    <?php 
+        if($sliderControlls){
+    ?>
+            <a class="caramel-slider__control carousel-control-prev" href="#caramel-home-slider" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="caramel-slider__control carousel-control-next" href="#caramel-home-slider" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+    <?php
+        }
+    ?>
 </div>
 
 <?php
+if($showreelSection){
+?>
+    <div class="caramel-showreels">
+        <h2 class="caramel-showreels__title"><?php echo $showreelsTitle ?></h2>
+        <div class="caramel-showreels__videos">
+
+        </div>
+    </div>
+<?php
+}
 
 if(!$usingPortfolioImageMode){
     echo '<div class="caramel-portfolio-projects-wrapper">';
