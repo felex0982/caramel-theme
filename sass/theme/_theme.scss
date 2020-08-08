@@ -192,7 +192,8 @@ a {
 
 .caramel-slider {
     margin-bottom: 50px;
-    max-width: 1400px;
+    max-w
+    idth: 1200px;
     padding: 0 30px;
     margin: 0 auto;
 
@@ -237,13 +238,27 @@ a {
 }
 
 .caramel-showreels {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 50px auto 0;
     padding: 30px;
 
     &__title {
         width: 100%;
         text-align: center;
+    }
+}
+
+.caramel-showreel-container {
+    display: flex;
+    flex-direction: row;
+
+    &__item {
+        &:first-child {
+            margin-right: 10px;
+        }
+        &:last-child {
+            margin-left: 10px;
+        }
     }
 }
 
@@ -365,7 +380,7 @@ a {
 }
 
 .caramel-portfolio-projects-wrapper {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 100px auto 0;
     padding: 20px;
     display: flex;
