@@ -18,6 +18,7 @@ $sliderControlls = get_theme_mod( 'landingpage_slider_controlls' );
 $showreelSection = get_theme_mod( 'landingpage_showreels' );
 $showreelsTitle = get_theme_mod( 'landingpage_showreels_title' );
 $showreelOneID = get_theme_mod( 'landingpage_showreel_one_id' );
+$showreelTwoID = get_theme_mod( 'landingpage_showreel_two_id' );
 ?>
 
 <div id="caramel-home-slider" class="caramel-slider carousel slide <?php if($fullWidthSlider){ echo 'caramel-slider--fullwidth';} ?>" data-ride="carousel">
@@ -88,8 +89,15 @@ if($showreelSection){
         <h2 class="caramel-showreels__title"><?php echo $showreelsTitle ?></h2>
         <div class="caramel-showreels__videos caramel-showreel-container">
             <?php if($showreelOneID){
-            ?>
-            <iframe src="https://player.vimeo.com/video/<?php echo $showreelOneID ?>" class="caramel-showreel-container__item" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            ?>  <div class="caramel-showreel-container__item-wrapper <?php if($showreelTwoID){ echo 'caramel-showreel-container__item-wrapper--two';}?>">
+                    <iframe src="https://player.vimeo.com/video/<?php echo $showreelOneID ?>" class="caramel-showreel-container__item" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+            <?php }
+            if($showreelTwoID){
+            ?>  
+                <div class="caramel-showreel-container__item-wrapper caramel-showreel-container__item-wrapper--two">
+                    <iframe src="https://player.vimeo.com/video/<?php echo $showreelTwoID ?>" class="caramel-showreel-container__item" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
             <?php }
             ?>
         </div>

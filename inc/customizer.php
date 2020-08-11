@@ -184,7 +184,15 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 		$wp_customize->add_setting(
 			'landingpage_showreel_one_id',
 			array(
-				'default'           => '201304529',
+				'default'           => '151636324',
+				'transport' => 'refresh',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'landingpage_showreel_two_id',
+			array(
+				'default'           => '151636324',
 				'transport' => 'refresh',
 			)
 		);
@@ -407,6 +415,21 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 					'description' => __( 'Put in a link to your showreel vimeo video', 'caramel' ),
 					'section'     => 'caramel_landingpage',
 					'settings'    => 'landingpage_showreel_one_id',
+					'type'        => 'text',
+					'priority'    => 40,
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'landingpage_showreel_two_id',
+				array(
+					'label'       => __( 'Showreel-Two', 'caramel' ),
+					'description' => __( 'Put in a link to your showreel vimeo video. If you prefer just one video just leave this field empty and publish.', 'caramel' ),
+					'section'     => 'caramel_landingpage',
+					'settings'    => 'landingpage_showreel_two_id',
 					'type'        => 'text',
 					'priority'    => 40,
 				)
