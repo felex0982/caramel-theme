@@ -20,7 +20,7 @@ $whatsapp = get_theme_mod( 'contact_info_whatsapp' );
 $showThemeCredit = get_theme_mod( 'portfolio_theme_credit' );
 ?>
 
-	<footer class="">
+	<footer class="caramel-footer">
 
 		<?php if($showContact) {
 		?>
@@ -46,7 +46,7 @@ $showThemeCredit = get_theme_mod( 'portfolio_theme_credit' );
 				<div class="caramel-home-info__row">
 					<?php if($showInstagram) {
 					?>
-						<a class="caramel-contact-link" target="_blank" href="https://instagram.com/<?php echo esc_attr($instagram); ?>">Folgt mir gerne auf Instagram</div>
+						<a class="caramel-contact-link" target="_blank" href="https://instagram.com/<?php echo esc_attr($instagram); ?>">Folgt mir gerne auf Instagram</a>
 					<?php
 					}
 					?>
@@ -54,6 +54,19 @@ $showThemeCredit = get_theme_mod( 'portfolio_theme_credit' );
 			</div>
 		<?php
 		}
+
+		wp_nav_menu(
+			array(
+				'theme_location'  => 'footer',
+				'container_class' => 'caramel-footer-menu',
+				'container_id'    => 'caramelFooterMenu',
+				'menu_class'      => 'caramel-footer-menu__list caramel-footer-menu-list',
+				'fallback_cb'     => '',
+				'menu_id'         => 'footer-menu',
+				'depth'           => 1,
+			)
+		);
+
 		if($showThemeCredit) {
 		?>
 			<div class="caramel-theme-credit">
