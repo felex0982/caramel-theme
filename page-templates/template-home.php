@@ -86,7 +86,7 @@ $showreelTwoID = get_theme_mod( 'landingpage_showreel_two_id' );
 if($showreelSection){
 ?>
     <div class="caramel-showreels">
-        <h2 class="caramel-showreels__title"><?php echo $showreelsTitle ?></h2>
+        <?php if($showreelsTitle){ ?><h2 class="caramel-showreels__title"><?php echo $showreelsTitle ?></h2><?php } ?>
         <div class="caramel-showreels__videos caramel-showreel-container">
             <?php if($showreelOneID){
             ?>  <div class="caramel-showreel-container__item-wrapper <?php if($showreelTwoID){ echo 'caramel-showreel-container__item-wrapper--two';}?>">
