@@ -19,6 +19,7 @@ $showreelSection = get_theme_mod( 'landingpage_showreels' );
 $showreelsTitle = get_theme_mod( 'landingpage_showreels_title' );
 $showreelOneID = get_theme_mod( 'landingpage_showreel_one_id' );
 $showreelTwoID = get_theme_mod( 'landingpage_showreel_two_id' );
+$projectsTitle = get_theme_mod( 'landingpage_projects_title' );
 ?>
 
 <div id="caramel-home-slider" class="caramel-slider carousel slide <?php if($fullWidthSlider){ echo 'caramel-slider--fullwidth';} ?>" data-ride="carousel">
@@ -107,6 +108,8 @@ if($showreelSection){
 
 if(!$usingPortfolioImageMode){
     echo '<div class="caramel-portfolio-projects-wrapper">';
+    if($projectsTitle) { echo '<h2 class="caramel-portfolio-projects-title">' . $projectsTitle . '</h2>';}
+
     $query = new WP_Query(array(
         'post_type' => 'portfolio',
         'post_status' => 'publish',

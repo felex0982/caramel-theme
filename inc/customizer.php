@@ -205,6 +205,14 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 			)
 		);
 
+		$wp_customize->add_setting(
+			'landingpage_projects_title',
+			array(
+				'default'           => 'Projects',
+				'transport' => 'refresh',
+			)
+		);
+
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
@@ -436,6 +444,21 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
+				'landingpage_projects_title',
+				array(
+					'label'       => __( 'Projects Title', 'caramel' ),
+					'description' => __( 'Put in a title for your projects section', 'caramel' ),
+					'section'     => 'caramel_landingpage',
+					'settings'    => 'landingpage_projects_title',
+					'type'        => 'text',
+					'priority'    => 70,
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
 				'landingpage_showreel_one_id',
 				array(
 					'label'       => __( 'Showreel-One', 'caramel' ),
@@ -443,7 +466,7 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 					'section'     => 'caramel_landingpage',
 					'settings'    => 'landingpage_showreel_one_id',
 					'type'        => 'text',
-					'priority'    => 40,
+					'priority'    => 50,
 				)
 			)
 		);
@@ -458,7 +481,7 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 					'section'     => 'caramel_landingpage',
 					'settings'    => 'landingpage_showreel_two_id',
 					'type'        => 'text',
-					'priority'    => 40,
+					'priority'    => 60,
 				)
 			)
 		);
