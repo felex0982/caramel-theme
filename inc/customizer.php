@@ -150,6 +150,14 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 		);
 
 		$wp_customize->add_setting(
+			'portfolio_theme_credit',
+			array(
+				'default'           => true,
+				'transport' => 'refresh',
+			)
+		);
+
+		$wp_customize->add_setting(
 			'landingpage_slider_fullwidth',
 			array(
 				'default'           => true,
@@ -330,6 +338,25 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 						true => 'Image',
 					),
 					'priority'    => 10,
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'portfolio_theme_credit',
+				array(
+					'label'       => __( 'Show Theme-Credits', 'caramel' ),
+					'description' => __( 'Give some credit to the theme creator for good karma.', 'caramel' ),
+					'section'     => 'caramel_portfolio_mode',
+					'settings'    => 'portfolio_theme_credit',
+					'type'        => 'radio',
+					'choices'	  => array(
+						false => 'Bad Karma',
+						true => 'Good Karma',
+					),
+					'priority'    => 20,
 				)
 			)
 		);

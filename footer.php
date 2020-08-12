@@ -17,6 +17,7 @@ $showInstagram = get_theme_mod( 'contact_info_display_instagram' );
 $instagram = get_theme_mod( 'contact_info_instagram' );
 $email = get_theme_mod( 'contact_info_email' );
 $whatsapp = get_theme_mod( 'contact_info_whatsapp' );
+$showThemeCredit = get_theme_mod( 'portfolio_theme_credit' );
 ?>
 
 	<footer class="">
@@ -53,11 +54,14 @@ $whatsapp = get_theme_mod( 'contact_info_whatsapp' );
 			</div>
 		<?php
 		}
+		if($showThemeCredit) {
 		?>
-
-		<div class="caramel-theme-credit">
-			<a class="caramel-theme-credit__link" href="https://caramel.flellex.de">Theme: Caramel by flellex.de</a>
-		</div>
+			<div class="caramel-theme-credit">
+				<a class="caramel-theme-credit__link" href="https://caramel-wordpress.flellex.de">Theme: Caramel by flellex.de</a>
+			</div>
+		<?php
+		}
+		?>
 
 	</footer>
 
