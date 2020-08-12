@@ -195,6 +195,10 @@ a {
     max-width: 1200px;
     padding: 0 30px;
     margin: 0 auto;
+    max-height: 75vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
 
     &--fullwidth {
         max-width: 100%;
