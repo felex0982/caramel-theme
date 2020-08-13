@@ -213,6 +213,14 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 			)
 		);
 
+		$wp_customize->add_setting(
+			'landingpage_all_projects',
+			array(
+				'default'           => 'false',
+				'transport' => 'refresh',
+			)
+		);
+
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
@@ -337,7 +345,7 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 				'portfolio_image_mode',
 				array(
 					'label'       => __( 'Lightbox-Toggle', 'caramel' ),
-					'description' => __( 'Choose between a image based or project page portfolio', 'caramel' ),
+					'description' => __( 'Choose between a lightbox for only displaying an image or linking to a project page on clicking item of a portfolio category gallery.', 'caramel' ),
 					'section'     => 'caramel_portfolio_mode',
 					'settings'    => 'portfolio_image_mode',
 					'type'        => 'radio',
@@ -452,6 +460,25 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 					'settings'    => 'landingpage_projects_title',
 					'type'        => 'text',
 					'priority'    => 70,
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'landingpage_all_projects',
+				array(
+					'label'       => __( 'All Projects', 'caramel' ),
+					'description' => __( 'show projects on your landingpage', 'caramel' ),
+					'section'     => 'caramel_landingpage',
+					'settings'    => 'landingpage_all_projects',
+					'type'        => 'radio',
+					'choices'	  => array(
+						true => 'on',
+						false => 'off',
+					),
+					'priority'    => 80,
 				)
 			)
 		);

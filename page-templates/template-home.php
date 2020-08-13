@@ -12,7 +12,7 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
-$usingPortfolioImageMode = get_theme_mod( 'portfolio_image_mode' );
+$allProjectsOnLandingpage = get_theme_mod( 'landingpage_all_projects' );
 $fullWidthSlider = get_theme_mod( 'landingpage_slider_fullwidth' );
 $sliderControlls = get_theme_mod( 'landingpage_slider_controlls' );
 $showreelSection = get_theme_mod( 'landingpage_showreels' );
@@ -106,7 +106,7 @@ if($showreelSection){
 <?php
 }
 
-if(!$usingPortfolioImageMode){
+if($allProjectsOnLandingpage){
     echo '<div class="caramel-portfolio-projects-wrapper">';
     if($projectsTitle) { echo '<h2 class="caramel-portfolio-projects-title">' . $projectsTitle . '</h2>';}
 
