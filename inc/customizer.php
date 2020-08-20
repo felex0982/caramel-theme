@@ -221,6 +221,22 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 			)
 		);
 
+		$wp_customize->add_setting(
+			'landingpage_logo_magic',
+			array(
+				'default'           => 'false',
+				'transport' => 'refresh',
+			)
+		);
+
+		$wp_customize->add_setting(
+			'landingpage_logo_fixed',
+			array(
+				'default'           => 'false',
+				'transport' => 'refresh',
+			)
+		);
+
 		$wp_customize->add_control(
 			new WP_Customize_Control(
 				$wp_customize,
@@ -509,6 +525,44 @@ if ( ! function_exists( 'caramel_theme_customize_register' ) ) {
 					'settings'    => 'landingpage_showreel_two_id',
 					'type'        => 'text',
 					'priority'    => 60,
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'landingpage_logo_magic',
+				array(
+					'label'       => __( 'Logo Magic', 'caramel' ),
+					'description' => __( 'Make your logo the landing screen', 'caramel' ),
+					'section'     => 'title_tagline',
+					'settings'    => 'landingpage_logo_magic',
+					'type'        => 'radio',
+					'choices'	  => array(
+						true => 'on',
+						false => 'off',
+					),
+					'priority'    => 9,
+				)
+			)
+		);
+
+		$wp_customize->add_control(
+			new WP_Customize_Control(
+				$wp_customize,
+				'landingpage_logo_fixed',
+				array(
+					'label'       => __( 'Logo Fixed', 'caramel' ),
+					'description' => __( 'Always show your logo' ),
+					'section'     => 'title_tagline',
+					'settings'    => 'landingpage_logo_fixed',
+					'type'        => 'radio',
+					'choices'	  => array(
+						true => 'on',
+						false => 'off',
+					),
+					'priority'    => 8,
 				)
 			)
 		);

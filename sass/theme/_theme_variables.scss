@@ -9,9 +9,9 @@ $primary-text: #000000;
 $primary-text-hover: #666666;
 $transparent: rgba(255, 255, 255, 0);
 
-@mixin ease() {
-    -webkit-transition: all 0.20s ease;
-    -moz-transition: all 0.20s ease;
-    -o-transition: all 0.20s ease;
-    transition: all 0.20s ease;
+@mixin ease($duration: 130) {
+    -webkit-transition: all $duration*1ms ease;
+    -moz-transition: all $duration*1ms ease;
+    -o-transition: all $duration*1ms ease;
+    transition: all $duration*1ms ease;
 }

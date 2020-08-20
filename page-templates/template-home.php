@@ -12,6 +12,7 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
+$logoMagic = get_theme_mod( 'landingpage_logo_magic' );
 $allProjectsOnLandingpage = get_theme_mod( 'landingpage_all_projects' );
 $fullWidthSlider = get_theme_mod( 'landingpage_slider_fullwidth' );
 $sliderControlls = get_theme_mod( 'landingpage_slider_controlls' );
@@ -20,6 +21,14 @@ $showreelsTitle = get_theme_mod( 'landingpage_showreels_title' );
 $showreelOneID = get_theme_mod( 'landingpage_showreel_one_id' );
 $showreelTwoID = get_theme_mod( 'landingpage_showreel_two_id' );
 $projectsTitle = get_theme_mod( 'landingpage_projects_title' );
+?>
+
+<?php
+    if($logoMagic) {
+        echo('<div class="caramel-landing-logo">');
+        the_custom_logo();
+        echo('</div><div class="caramel-landing-logo-spacer"></div>');
+    }
 ?>
 
 <div id="caramel-home-slider" class="caramel-slider carousel slide <?php if($fullWidthSlider){ echo 'caramel-slider--fullwidth';} ?>" data-ride="carousel">

@@ -16,7 +16,25 @@ a {
 .caramel-title {
     display: flex;
 
-    &__custom-logo {
+    /*&__custom-logo {
+        
+    }*/
+}
+
+.caramel-logo {
+    display: flex;
+    @include ease(500);
+
+    &--hidden {
+        opacity: 0;
+    }
+
+    &--fixed {
+        position: fixed;
+        z-index: 100;
+    }
+
+    &__img {
         box-sizing: border-box;
         max-width: 200px;
         padding: 20px;
@@ -29,6 +47,29 @@ a {
         @media ( min-width: 768px ) {
         }
     }
+}
+
+.caramel-landing-logo {
+    position: fixed;
+    display: flex;
+    top: 0;
+    padding: 15vh 30px;
+    width: 100%;
+    justify-content: center;
+    @include ease(250);
+
+    &--hidden {
+        opacity: 0;
+    }
+
+    .caramel-logo__img {
+        max-width: 500px;
+        width: 100%;
+    }
+}
+
+.caramel-landing-logo-spacer {
+    width: 100%;
 }
 
 .caramel-nav {

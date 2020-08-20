@@ -10,6 +10,11 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+if(is_front_page()) {
+	$logoMagic = get_theme_mod( 'landingpage_logo_magic' );
+	$logoFixed = get_theme_mod( 'landingpage_logo_fixed' );
+}
+
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -38,7 +43,17 @@ defined( 'ABSPATH' ) || exit;
 
 		<?php
 			} else {
+				if($logoMagic) {
+					echo('<div class="caramel-logo caramel-logo--fixed caramel-logo--hidden">');
+				}
+				else if($logoFixed) {
+					echo('<div class="caramel-logo caramel-logo--fixed">');
+				}
+				else {
+					echo('<div class="caramel-logo">');
+				}
 				the_custom_logo();
+				echo('</div>');
 			}
 		?>
 		<!-- end custom logo -->
