@@ -12,8 +12,9 @@ defined( 'ABSPATH' ) || exit;
 
 if(is_front_page()) {
 	$logoMagic = get_theme_mod( 'landingpage_logo_magic' );
-	$logoFixed = get_theme_mod( 'landingpage_logo_fixed' );
 }
+
+$logoFixed = get_theme_mod( 'landingpage_logo_fixed' );
 
 ?>
 <!DOCTYPE html>
