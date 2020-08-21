@@ -29,7 +29,7 @@ if(is_front_page()) {
 <?php do_action( 'wp_body_open' ); ?>
 <div class="site" id="page">
 	<!-- ******************* Title & Logo Area ******************* -->
-	<div class="caramel-title">
+	<div class="caramel-title <?php if($logoMagic || $logoFixed) {echo("caramel-title--fixed");}?> custom-background">
 		<!-- start custom or standart logo -->
 		<?php if ( ! has_custom_logo() ) { ?>
 
@@ -44,10 +44,7 @@ if(is_front_page()) {
 		<?php
 			} else {
 				if($logoMagic) {
-					echo('<div class="caramel-logo caramel-logo--fixed caramel-logo--hidden">');
-				}
-				else if($logoFixed) {
-					echo('<div class="caramel-logo caramel-logo--fixed">');
+					echo('<div class="caramel-logo caramel-logo--hidden">');
 				}
 				else {
 					echo('<div class="caramel-logo">');
