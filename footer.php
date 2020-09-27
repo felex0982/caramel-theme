@@ -46,7 +46,7 @@ $showThemeCredit = get_theme_mod( 'portfolio_theme_credit' );
 				<div class="caramel-home-info__row">
 					<?php if($showInstagram) {
 					?>
-						<a class="caramel-contact-link" target="_blank" href="https://instagram.com/<?php echo esc_attr($instagram); ?>">Folgt mir gerne auf Instagram</a>
+						<a class="caramel-contact-link" target="_blank" href="https://instagram.com/<?php echo esc_attr($instagram); ?>"><img class="icon" src="<?php bloginfo('template_url'); ?>/src/icon/instagram.svg">Folgt mir gerne auf Instagram</a>
 					<?php
 					}
 					?>

@@ -5,8 +5,17 @@ a {
 
     &:hover {
         text-decoration: none;
-        color: $primary-text-hover;
+        color: $primary-text;
+        opacity: 0.6;
     }
+}
+
+.icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 10px;
+    padding-bottom: 2px;
+    box-sizing: border-box;
 }
 
 .nav-link {
@@ -126,6 +135,13 @@ a {
         @media ( min-width: 768px ) {
             font-size: 30px;
         }
+    }
+}
+
+.caramel-nav-list {
+    li {
+        text-align: right;
+        padding-right: 30px;
     }
 }
 
@@ -480,7 +496,16 @@ a {
 
     &__row {
         padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
+}
+
+.caramel-contact-link-spacer {
+
+    margin: 0 10px;
+
 }
 
 .caramel-theme-credit {
@@ -503,6 +528,10 @@ a {
 .caramel-single-wrapper {
     max-width: 1100px;
     margin: 0 auto;
+
+    &--fixed-logo {
+        padding-top: 130px;
+    }
 }
 
 .caramel-single-content {

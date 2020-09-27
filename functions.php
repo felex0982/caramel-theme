@@ -136,3 +136,11 @@ function caramel_custom_taxanomies(){
 }
 
 add_action('init', 'caramel_custom_taxanomies');
+
+function set_genre_posts_per_page( $query ) {
+
+	if(is_tax('genre')){
+	  $query->set('posts_per_page', -1);
+	}
+ }
+ add_action( 'pre_get_posts', 'set_genre_posts_per_page' );
