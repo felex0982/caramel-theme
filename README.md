@@ -1,6 +1,6 @@
 # Caramel Theme for Wordpress
 
-Website: caramel-wordpress.flellex.de
+Website: https://lichtinsicht.com
 
 ## About
 
